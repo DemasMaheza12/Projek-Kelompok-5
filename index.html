@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web dengan C++</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+  <h1>Uji Coba WebAssembly</h1>
+    <p id="pesan">Teks ini masih teks HTML biasa.</p>
+      <button id="tombolku">Jalankan Kode C++</button>
+  </div>
+
+  <script src="app.js"></script>
+
+  <script>
+    // Tunggu sampai WebAssembly selesai dimuat oleh browser
+    Module.onRuntimeInitialized = function() {
+      document.getElementById('tombolku').onclick = function() {
+      // Memanggil fungsi ubahTampilan yang kita buat di C++!
+      Module.ubahTampilan(); 
+      };
+    };
+  </script>
+
+</body>
+</html>
