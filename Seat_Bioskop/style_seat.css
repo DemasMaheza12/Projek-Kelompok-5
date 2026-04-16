@@ -9,23 +9,23 @@ body {
   align-items: center;
   font-family: Arial, sans-serif;
   text-align: center;
-  background: white;
+  background: #02002E;
   background-size: 300% 300%;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   max-width: 1100px;
-  margin: 0 7rem;
+  margin: 0 2.5rem;
   padding: 4rem 2rem;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 50px;
   padding: 1rem;
-  color: #02002E;
-  margin-bottom: 0.5rem;
+  color: white;
+  margin-bottom: 1rem;
   text-align: left;
   text-decoration: underline #c9a84c;
   text-underline-offset: 10px;
@@ -44,6 +44,7 @@ h1 {
   gap: 5rem;
   align-items: center;
   justify-content: flex-start;
+  margin: 0 5rem;
 }
 
 .seat-group {
@@ -70,13 +71,6 @@ h1 {
   color: #c9a84c;
 }
 
-.ringkasan-order {
-  padding: 1rem;
-  margin: auto;
-  margin-top: 6rem;
-  text-decoration: none;
-  width: 600px;
-}
 
 .col1, .col2, .col3 {
     display: flex;
@@ -89,21 +83,31 @@ h1 {
     display: block;
     margin: 0 auto;
     align-items: center;
-    margin-top: 12rem;
+    margin-top: 9rem;
 }
 
-.info-seat {
+.info-order {
     display: flex;
-    flex-direction: row;
-    gap: 5rem;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 8rem;
+    margin-left: 6rem;
+    align-items: center;
+}
+
+.ringkasan-order {
+  padding: 1.5rem;
+  margin-top: 9rem;
+  text-align: center;
+  text-decoration: none;
+  width: 400px;
 }
 
 .box {
     padding: 1.5rem;
     margin-top: 7rem;
     width: 350px;
-    height: 200px;
+    height: 150px;
     justify-content: center;
     align-items: flex-start;
     background: #1a1a26;
