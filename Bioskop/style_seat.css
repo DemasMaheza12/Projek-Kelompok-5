@@ -8,21 +8,23 @@ body {
   display: flex;
   font-family: Arial, sans-serif;
   background: white;
-  overflow-x: hidden;
 }
 
 .container {
   display: flex;
   flex-direction: row;
+  margin-top: 0;
   width: 100%;
   padding: 2rem;
 }
 
 .seat-container {
     display: flex;
-    flex: 1;
+    flex: 2;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 2rem;
+    margin: 0 auto;
     margin-top: 2rem;
     width: 100%;
     min-width: 0;
@@ -38,6 +40,7 @@ body {
     justify-content: space-between; 
     align-items: center;
     padding: 1rem 4rem;
+    width: 100%;
     color: white;
     font-size: 15px;
     font-weight: bold;
@@ -86,7 +89,7 @@ body {
 
 .dipesan {
     background: #000044;
-    color: #fff;
+    color: #757575;
 }
 
 .dipilih {
@@ -98,8 +101,7 @@ body {
   flex-direction: row;
   gap: 3rem;
   align-items: center;
-  justify-content: flex-start;
-  margin: 0 5rem;
+  justify-content: center;
 }
 
 .seat-group {
@@ -111,11 +113,16 @@ body {
 }
 
 .seat {
-  padding: 1rem 1.5rem;
+  display: flex;
+  width: 70px;
+  height: 55px;
+  justify-content: center;
   background: #060162;
   border: 1px solid #2a2a3a;
   border-radius: 12px;
   color: white;
+  align-items: center;
+  text-align: center;
   font-weight: bold;
   font-size: 15px;
   cursor: pointer;
@@ -124,6 +131,20 @@ body {
 .seat:hover, .ringkasan-order:hover  {
   border-color: #c9a84c;
   color: #c9a84c;
+}
+
+.seat.dipilih {
+  background: #FFA412;
+  color: white;
+  padding: 1rem 2.1rem;
+}
+
+.seat.dipesan {
+  background: #000044;
+  color: #757575;
+  cursor: not-allowed;
+  border-color: #000044;
+  padding: 1rem 2.1rem;
 }
 
 .col1, .col2, .col3 {
@@ -136,23 +157,28 @@ body {
 .layar {
     display: block;
     margin: 5rem auto; 
-    max-width: 90vw;
+    width: 100%;
+    max-width: 800px;
 }
 
 .info-order {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    width: 100%;
+    min-width: 400px;
     text-align: center;
+    margin: 0 auto;
     margin-top: 7rem;
     align-items: center;
 }
 
 .box {
     padding: 1.5rem;
+
     margin-top: 4rem;
     width: 240px;
     height: 115px;
-    align-items: flex-start;
     background: #DDDDDD;
     border: 1px solid #2a2a3a;
     border-radius: 15px;
@@ -167,12 +193,13 @@ body {
   border-radius: 12px;
   font-weight: bold;
   font-size: 15px;
-  cursor: pointer;
   padding: 1.5rem;
   margin-top: 5rem;
+  width: 100%;
+  max-width: 400px;
   text-align: center;
   text-decoration: none;
-  width: 400px;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
@@ -183,7 +210,6 @@ body {
 
   .info-order {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     margin-top: 2rem;
     gap: 2rem;
@@ -201,7 +227,6 @@ body {
   }
 
   .box {
-    width: 180px;
     height: auto;
     margin-top: 0;
     width: 240px;
@@ -218,9 +243,25 @@ body {
   }
 
   .seat {
-    padding: 1.5rem 2rem;
+    width: 70px;
+    height: 55px;
     font-size: 12px;
   }
+
+  .seat.dipilih {
+  background: #FFA412;
+  color: white;
+  padding: 1rem 2.1rem;
+  }
+
+  .seat.dipesan {
+  background: #000044;
+  color: #757575;
+  cursor: not-allowed;
+  border-color: #000044;
+  padding: 1rem 2.1rem;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -266,7 +307,8 @@ body {
   }
 
   .seat {
-    padding: 0.7rem 0.9rem;
+    width: 60px;
+    height: 40px;
     font-size: 12px;
   }
 }
