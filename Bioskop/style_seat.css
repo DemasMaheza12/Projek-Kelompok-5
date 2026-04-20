@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: Arial, sans-serif;
+  background: white;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 2rem;
+}
+
+.seat-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    min-width: 0;
+}
+
+.info-seat h1 {
+  font-size: 60px;
+}
+
+.info-seat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1rem 4rem;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.info-seat h1 {
+    margin: 0;
+    font-size: 40px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: #c9a84c;
+    color: #888;
+}
+
+.legenda-seat {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 16px;
+    color: #888;
+}
+
+.tersedia, .dipesan, .dipilih {
+    width: 60px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+}
+
+.tersedia {
+    background: navy; 
+}
+
+.dipesan {
+    background: #000044;
+    color: #fff;
+}
+
+.dipilih {
+    background: #FFA412; 
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 5rem;
+}
+
+.seat-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-top: 0.5rem;
+}
+
+.seat {
+  padding: 1rem 1.5rem;
+  background: #060162;
+  border: 1px solid #2a2a3a;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.seat:hover, .ringkasan-order:hover  {
+  border-color: #c9a84c;
+  color: #c9a84c;
+}
+
+.col1, .col2, .col3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.layar {
+    display: block;
+    margin: 5rem auto; 
+    max-width: 90vw;
+}
+
+.info-order {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 7rem;
+    align-items: center;
+}
+
+.box {
+    padding: 1.5rem;
+    margin-top: 4rem;
+    width: 240px;
+    height: 115px;
+    align-items: flex-start;
+    background: #DDDDDD;
+    border: 1px solid #2a2a3a;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ringkasan-order {
+  background: #02002E;
+  color: white;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 1.5rem;
+  margin-top: 5rem;
+  text-align: center;
+  text-decoration: none;
+  width: 400px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .info-order {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+.info-seat {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;   
+    gap: 1rem;
+  }
+
+  .status-item {
+    margin-top: 2rem;
+  }
+
+  .box {
+    width: 180px;
+    height: auto;
+    margin-top: 0;
+    width: 240px;
+    height: 115px;
+  }
+
+  .ringkasan-order {
+    width: 100%;
+  }
+
+  .row {
+    margin: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .seat {
+    padding: 1.5rem 2rem;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .info-order {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+.info-seat {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;   
+    gap: 1rem;
+  }
+
+  .status-item {
+    margin-top: 2rem;
+  }
+
+  .box {
+    width: 180px;
+    height: auto;
+    margin-top: 0;
+    width: 240px;
+    height: 115px;
+  }
+
+  .ringkasan-order {
+    width: 100%;
+  }
+
+  .row {
+    margin: 0 1rem;
+    gap: 1rem;
+  }
+
+  .seat {
+    padding: 0.7rem 0.9rem;
+    font-size: 12px;
+  }
+}
