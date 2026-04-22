@@ -1,0 +1,322 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+html {
+	scrollbar-gutter: stable;
+}
+
+body {
+	background-color: #050314;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 100vh;
+	overflow-x: hidden;
+	padding: 50px 20px;
+}
+
+.cinema-app {
+	width: 100%;
+	max-width: 1400px;
+	padding: 20px;
+	/* background-color: blue; */
+}
+
+/* header ini  */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+
+.btn-about {
+	background-color: #F89B29;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	pad: 8px 24px;
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 10px;
+	width: 100px;
+	transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-about:hover {
+	background-color: #ffa840;
+}
+
+.judul {
+	font-size: 46px;
+	font-weight: normal;
+}
+
+.highlight {
+	color: #f89b29;
+	font-weight: bold;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.carousel {
+	position: relative;
+	height: 350px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.film {
+	width: 180px;
+	height: 270px;
+	border-radius: 15px;
+	position: absolute;
+	overflow: hidden;
+	transition: all 0.5s ease-in-out;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	pointer-events: none;
+	transform: scale(0.5s);
+}
+
+.film.kiri, .film.tengah, .film.kanan {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.film img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.film.hilang-kiri {
+	transform: translateX(-600px) scale(0.5);
+	opacity: 0;
+	z-index: 0;
+}
+
+.film.kiri-luar {
+	transform: translateX(-400px) scale(0.7);
+	opacity: 0.3;
+	z-index: 0;
+}
+
+
+.film.kiri {
+	transform: translateX(-220px) scale(0.85);
+	opacity: 0.5;
+	z-index: 1;
+}
+
+.film.tengah {
+	transform: translateX(0) scale(1.15);
+	opacity: 1;
+	z-index: 10;
+	box-shadow: 0 0 40px rgba(120, 150, 255, 0.4);
+}
+
+.film.kanan {
+	transform: translate(220px) scale(0.85);
+	opacity: 0.5;
+	z-index: 1;
+}
+
+.film.kanan-luar {
+	transform: translateX(400px) scale(0.65);
+	opacity: 0.2;
+	z-index: 0;
+}
+
+.film.hilang-kanan {
+	transform: translate(600px) scale(0.5);
+	opacity: 0;
+	z-index: 0;
+}
+
+.film.kiri-luar, .film.kiri, .film.tengah, .film.kanan, .film.kanan-luar {
+  pointer-events: auto;
+}
+
+
+.movie-detail {
+	display: grid;
+	grid-template-columns: 60px 1fr 60px;
+	align-items: center;
+	width: 100%;
+	max-width: 500px;
+	gap: 10px;
+	margin: 30px auto 0;
+}
+
+.nav-btn {
+	background-color: rgba(255, 255, 255, 0.4);
+	border: none;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+	transform: background 0.3s;
+}
+
+.nav-btn:hover {
+	background: rgba(255, 255, 255, 0.7)
+}
+
+.movie-text {
+	text-align: center;
+	min-width: 0;
+}
+
+.title {
+	font-size: 30px;
+	margin-top: 5px;
+	padding-bottom: 10px;
+	line-height: 1.3;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.genre {
+	color: #f89b29;
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.btn-pesan {
+	background-color: #f89b29;
+	color: white;
+	border: none;
+	padding: 12px 60px;
+	border-radius: 25px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 25px;
+	cursor: pointer;
+	transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-pesan:hover {
+	transform: scale(1.05);
+	background-color: #ffa840;
+}
+
+.jadwal-menu {
+	margin-top: 0;
+	width: 100%;
+	max-width: 400px;
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: all 0.7s ease-in-out;
+}
+
+.jadwal-menu.tampil {
+	max-height: 300px;
+	opacity: 1;
+	margin-top: 30px;
+}
+
+
+.jadwal-judul {
+	text-align: left;
+	font-size: 20px;
+	margin-bottom: 15px;
+	letter-spacing: 1px;
+	padding-left: 5px;
+}
+
+.jadwal-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 15px;
+
+	padding: 5px;
+}
+
+.link-seat {
+	text-decoration: none;
+}
+
+.btn-jam {
+	background-color: rgba(255, 255, 255, 0.3);
+	color: white;
+	border: none;
+	border-radius: 25px;
+	padding: 12px 0;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease	;
+
+	text-decoration: none;
+	display: block;
+	text-align: center;
+}
+
+.btn-jam:hover {
+	background-color:  rgba(255, 255, 255, 0.7);
+	transform: scale(1.05);
+}
