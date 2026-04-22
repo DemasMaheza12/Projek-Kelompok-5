@@ -1,30 +1,87 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web dengan C++</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zodiac Cinemas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="cinema-app">
+      <header>
+        <a href="about.html"><button class="btn-about">about</button></a>
+        <h1 class="judul"><span class="highlight">Zodiac</span> cinemas</h1>
+      </header>
 
-  <div class="container">
-  <h1>Uji Coba WebAssembly</h1>
-    <p id="pesan">Teks ini masih teks HTML biasa.</p>
-      <button id="tombolku">Jalankan Kode C++</button>
-  </div>
+      <main >
+        <section class="carousel">
+          <div class="film">
+            <img src="img/dilan.jpg" alt="dilan">
+          </div>
+          <div class="film">
+            <img src="img/bwy.jpg" alt="be with you">
+          </div>
+          <div class="film">
+            <img src="img/takusai.jpeg" alt="tak ingin usai">
+          </div>
+          <div class="film">
+            <img src="img/Na Willa.jpg" alt="Na Willa">
+          </div>
+          <div class="film">
+            <img src="img/sore.jpg" alt="Sore">
+          </div>
+          <div class="film">
+            <img src="img/danur.jpg" alt="Danur">
+          </div>
+          <div class="film">
+            <img src="img/call.jpg" alt="the call">
+          </div>
+          <div class="film">
+            <img src="img/elf.jpg" alt="elf">
+          </div>
+          <div class="film">
+            <img src="img/akusukses.jpg" alt="tunggu aku sukses nanti">
+          </div>
+          <div class="film">
+            <img src="img/humint.jpg" alt="humint">
+          </div>
+          <div class="film">
+            <img src="img/5cm.jpg" alt="5cm">
+          </div>
+          <div class="film">
+            <img src="img/azzamine.jpg" alt="azzamine">
+          </div>
 
-  <script src="app.js"></script>
 
-  <script>
-    // Tunggu sampai WebAssembly selesai dimuat oleh browser
-    Module.onRuntimeInitialized = function() {
-      document.getElementById('tombolku').onclick = function() {
-      // Memanggil fungsi ubahTampilan yang kita buat di C++!
-      Module.ubahTampilan(); 
-      };
-    };
-  </script>
+        </section>
+        <div class="movie-detail">
+          <button class="nav-btn prev">&#9664;</button>
 
-</body>
+          <div class="movie-text">
+            <span class="genre">Romance, Fantasy</span>
+            <h2 class="title">Be With You</h2>
+          </div>
+          
+          <button class="nav-btn next">&#9654;</button>
+        </div>
+
+        <button class="btn-pesan">Pesan</button>
+
+        <div class="jadwal-menu">
+          <h3 class="jadwal-judul">IMAX 2D</h3>
+          <div class="jadwal-grid">
+            <a class="btn-jam" href="seat.html">10:00</a>
+            <a class="btn-jam" href="seat.html">12:00</a>
+            <a class="btn-jam" href="seat.html">14:00</a>
+            <a class="btn-jam" href="seat.html">16:00</a>
+            <a class="btn-jam" href="seat.html">18:00</a>
+            <a class="btn-jam" href="seat.html">20:00</a>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <script src="wasm_carousel.js"></script>
+  </body>
 </html>
