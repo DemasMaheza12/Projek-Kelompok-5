@@ -150,7 +150,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .label {
@@ -183,7 +183,7 @@ body {
     height: 1px;
     background: black;
     margin: 1rem 0;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .metode-payment {
@@ -240,13 +240,14 @@ body {
 .garis {
     height: 1px;
     margin: 0.8rem 0;
+    margin-bottom: 2.5rem;
 }
 
 .total {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.7rem;
+    margin-bottom: 1rem;
     color: #323232;
 }
 
@@ -265,7 +266,7 @@ body {
     border: none;
     border-radius: 9px;
     font-size: 1.4rem;
-    font-family:Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     text-decoration: unset;
     gap: 0.5rem;
