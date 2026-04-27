@@ -10,7 +10,7 @@
     <div class="cinema-app">
         <header class="top">
             <a href="index.html"><button class="btn-about">Kembali</button></a>
-            <h1 class="judul"><span class="highlight">Zodiac</span> cinemas</h1>
+            <div class="zodiac"><span>Zodiac</span> cinemas</div>
         </header>
 
         <main>
@@ -77,22 +77,24 @@
                 </div>
 
                 <div class="sidebar-info">
-                    <div class="info-card">
-                        <p class="info-label">Total harga</p>
-                        <h3 class="info-price" id="total-harga">-</h3>
-                    </div>
-                    
-                    <div class="info-card">
-                        <p class="info-label">Tempat duduk</p>
-                        <div class="selected-seats-list" id="selected-seats-list">
-                            </div>
+                    <div class="info-cards-wrapper">
+                        <div class="info-card kotak">
+                            <p class="info-label">Total harga</p>
+                            <h3 class="info-price" id="total-harga">-</h3>
+                        </div>
+                        <div class="info-card kotak">
+                            <p class="info-label">Tempat duduk</p>
+                            <div class="selected-seats-list" id="selected-seats-list"></div>
+                        </div>
                     </div>
 
-                    <a href="payment.html" style="text-decoration: none;">
-                        <button class="btn-summary" id="btn-summary">RINGKASAN ORDER(0)</button>
-                    </a>
-                    
-                    <button id="btn-undo" class="btn-undo-style">Batal Pilih (UNDO)</button>
+                    <div class="ringkasan">
+                        <a href="payment.html" style="text-decoration: none;">
+                            <button class="btn-summary" id="btn-summary">RINGKASAN ORDER(0)</button>
+                        </a>
+                        
+                        <button id="btn-undo" class="btn-undo-style">Batal Pilih (UNDO)</button>
+                    </div>
                 </div>
             </div>
         </main>
