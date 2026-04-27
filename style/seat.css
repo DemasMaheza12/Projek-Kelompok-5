@@ -29,6 +29,10 @@ body {
     cursor: pointer;
 }
 
+.btn-about:hover {
+    transform: scale(1.1);
+}
+
 .judul {
 	font-size: 46px;
 	font-weight: normal;
