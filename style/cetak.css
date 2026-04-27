@@ -1,0 +1,132 @@
+/* Basic Reset */
+body { 
+    background-color: #050314; /* Warna biru gelap Zodiac */
+    color: white; 
+    display: flex; 
+    justify-content: center; 
+    padding: 40px; 
+    font-family: sans-serif; 
+    margin: 0;
+}
+.cinema-app { width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center;}
+
+/* Header */
+.header-cetak { width: 100%; text-align: left; margin-bottom: 50px; padding-left: 20px;}
+.judul { font-size: 36px; font-weight: normal; margin: 0; }
+.highlight { color: #f89b29; font-weight: bold; }
+.highlight-white { color: white; font-weight: bold; }
+
+.cetak-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+/* TICKET STYLING */
+/* Cari dan ubah bagian ini di cetak.css */
+.ticket-wrapper {
+    display: flex;
+    background-color: transparent;
+    width: 800px;
+    height: 350px;
+    /* filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); <-- HAPUS ATAU KOMENTARI BARIS INI */
+    margin-bottom: 40px;
+}
+
+/* Membuat Coakan (Notch) */
+.notch-top, .notch-bottom {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #050314; 
+    border-radius: 50%;
+    left: -21px; 
+    z-index: 5; /* <-- TAMBAHKAN INI biar posisinya selalu di atas garis putus-putus */
+}
+
+/* Bagian Kiri & Kanan */
+.ticket-left { width: 30%; background-color: white; border-radius: 15px 0 0 15px; display: flex; flex-direction: column; overflow: hidden; }
+.ticket-right { width: 70%; background-color: white; border-radius: 0 15px 15px 0; display: flex; flex-direction: column; overflow: hidden; }
+
+/* Header Oranye Tiket */
+.ticket-header {
+    background-color: #f89b29;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: #333;
+}
+.ticket-header h3 { margin: 0; font-size: 18px; font-weight: normal; }
+.right-align { justify-content: flex-end; }
+
+/* Body Tiket (Warna Putih) */
+.ticket-body {
+    flex: 1;
+    padding: 20px;
+    color: #333;
+}
+.center-content { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* Detail Kiri */
+.label-text { font-size: 12px; color: #888; margin: 0 0 5px 0; }
+.booking-number { font-size: 24px; letter-spacing: 2px; margin: 0 0 20px 0; color: #333; }
+.qr-img { width: 120px; height: 120px; object-fit: contain; }
+
+/* Garis Putus-putus Tengah & Coakan */
+.ticket-divider {
+    width: 0;
+    border-left: 2px dashed #ccc; /* Garis putus-putus */
+    position: relative;
+    background-color: white;
+}
+/* Membuat Coakan (Notch) */
+.notch-top, .notch-bottom {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #050314; /* Sama dengan background body */
+    border-radius: 50%;
+    left: -21px; /* Posisi di tengah garis */
+}
+.notch-top { top: -20px; }
+.notch-bottom { bottom: -20px; }
+
+/* Detail Kanan */
+.flex-row { display: flex; gap: 30px; align-items: center; height: 100%; box-sizing: border-box; }
+.poster-mini { width: 140px; height: 200px; border-radius: 10px; object-fit: cover; box-shadow: 0 5px 10px rgba(0,0,0,0.2); }
+.ticket-info { flex: 1; }
+.movie-title { font-size: 28px; margin: 0 0 20px 0; color: #000; }
+
+.info-table { width: 100%; border-collapse: collapse; }
+.info-table td { padding: 5px 0; font-size: 14px; }
+.col-label { width: 80px; color: #666; }
+.col-value { font-weight: bold; color: #333; }
+
+/* Tombol Cetak */
+.btn-cetak {
+    background-color: #f89b29;
+    color: white;
+    border: none;
+    padding: 15px 100px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-cetak:hover { background-color: #e08920; }
+
+/* CSS KHUSUS PRINT - Menyembunyikan elemen yang gak perlu diprint */
+/* CSS KHUSUS PRINT - Menyembunyikan elemen yang gak perlu diprint */
+@media print {
+    body { background-color: white; padding: 0; }
+    .header-cetak, .btn-cetak { display: none; } /* Sembunyikan judul utama dan tombol */
+    
+    .ticket-wrapper { 
+        filter: none; 
+        box-shadow: none; 
+        border: 1px solid #ccc; /* Beri garis luar sedikit agar jelas di kertas */
+    }
+    
+    /* HILANGKAN COAKAN SAAT DICETAK KE KERTAS */
+    .notch-top, .notch-bottom { 
+        display: none; 
+    }
+}

@@ -1,252 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seat</title>
-    <link rel="stylesheet" href="style/style_seat.css">
+    <title>Zodiac Cinemas - Pilih Kursi</title>
+    <link rel="stylesheet" href="style/seat.css">
 </head>
 <body>
-    <div class="container">
+    <div class="cinema-app">
+        <header class="top">
+            <a href="index.html"><button class="btn-about">Kembali</button></a>
+            <h1 class="judul"><span class="highlight">Zodiac</span> cinemas</h1>
+        </header>
 
-            <div class="seat-container">
-                
-                <div class="info-seat">
-                    <h1 class="pilih">Pilih Seat</h1>
-
-                    <div class="legenda-seat">
-                        <div class="status-item">
-                            <div class="tersedia">A3</div>
-                            <span class="label">Tersedia</span>
-                        </div>
-
-                        <div class="status-item">
-                            <div class="dipesan">A5</div>
-                            <span class="label">Sudah Dipesan</span>
-                        </div>
-
-                        <div class="status-item">
-                            <div class="dipilih">A2</div>
-                            <span class="label">Dipilih</span>
+        <main>
+            <div class="booking-container">
+                <div class="seat-area">
+                    <div class="seat-header">
+                        <h2>PILIH SEAT</h2>
+                        <div class="legend">
+                            <div class="legend-item"><span class="box tersedia"></span> Tersedia</div>
+                            <div class="legend-item"><span class="box dipesan"></span> Sudah Dipesan</div>
+                            <div class="legend-item"><span class="box dipilih"></span> Dipilih</div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col1">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">A1</div>
-                            <div class="seat" onclick="clickSeat(this)">A2</div>
+
+                    <div class="seat-map" id="seat-map">
+                        <div class="row">
+                            <div class="seat-block">
+                                <button class="seat">A1</button>
+                                <button class="seat">A2</button>
+                            </div>
+                            <div class="seat-block">
+                                <button class="seat">A3</button>
+                                <button class="seat">A4</button>
+                                <button class="seat">A5</button>
+                                <button class="seat">A6</button>
+                                <button class="seat">A7</button>
+                                <button class="seat">A8</button>
+                            </div>
+                            <div class="seat-block">
+                                <button class="seat">A9</button>
+                                <button class="seat">A10</button>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="seat-block"><button class="seat">B1</button><button class="seat">B2</button></div>
+                            <div class="seat-block">
+                                <button class="seat">B3</button><button class="seat">B4</button><button class="seat">B5</button>
+                                <button class="seat">B6</button><button class="seat">B7</button><button class="seat">B8</button>
+                            </div>
+                            <div class="seat-block"><button class="seat">B9</button><button class="seat">B10</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat-block"><button class="seat">C1</button><button class="seat">C2</button></div>
+                            <div class="seat-block">
+                                <button class="seat">C3</button><button class="seat">C4</button><button class="seat">C5</button>
+                                <button class="seat">C6</button><button class="seat">C7</button><button class="seat">C8</button>
+                            </div>
+                            <div class="seat-block"><button class="seat">C9</button><button class="seat">C10</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat-block"><button class="seat">D1</button><button class="seat">D2</button></div>
+                            <div class="seat-block">
+                                <button class="seat">D3</button><button class="seat">D4</button><button class="seat">D5</button>
+                                <button class="seat">D6</button><button class="seat">D7</button><button class="seat">D8</button>
+                            </div>
+                            <div class="seat-block"><button class="seat">D9</button><button class="seat">D10</button></div>
+                        </div>
+                    </div>
+
+                    <div class="screen-container">
+                        <div class="screen-curve"></div>
+                        <p>Layar Bioskop</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-info">
+                    <div class="info-card">
+                        <p class="info-label">Total harga</p>
+                        <h3 class="info-price" id="total-harga">-</h3>
                     </div>
                     
-                    <div class="col2">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">A3</div>
-                            <div class="seat" onclick="clickSeat(this)">A4</div>
-                        </div>
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">A5</div>
-                            <div class="seat" onclick="clickSeat(this)">A6</div>
-                        </div>
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">A7</div>
-                            <div class="seat" onclick="clickSeat(this)">A8</div>
-                        </div>
+                    <div class="info-card">
+                        <p class="info-label">Tempat duduk</p>
+                        <div class="selected-seats-list" id="selected-seats-list">
+                            </div>
                     </div>
 
-                    <div class="col3">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">A9</div>
-                            <div class="seat" onclick="clickSeat(this)">A10</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col1">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">B1</div>
-                            <div class="seat" onclick="clickSeat(this)">B2</div>
-                        </div>
-                    </div>
-
-                    <div class="col2">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">B3</div>
-                            <div class="seat" onclick="clickSeat(this)">B4</div>
-                        </div>
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">B5</div>
-                            <div class="seat" onclick="clickSeat(this)">B6</div>
-                        </div>
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">B7</div>
-                            <div class="seat" onclick="clickSeat(this)">B8</div>
-                        </div>
-                    </div>
-
-                    <div class="col3">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">B9</div>
-                            <div class="seat" onclick="clickSeat(this)">B10</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col1">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">C1</div>
-                            <div class="seat" onclick="clickSeat(this)">C2</div>
-                        </div>
-                    </div>
-
-                    <div class="col2">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">C3</div>
-                            <div class="seat" onclick="clickSeat(this)">C4</div>
-                        </div>
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">C5</div>
-                            <div class="seat" onclick="clickSeat(this)">C6</div>
-                        </div>
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">C7</div>
-                            <div class="seat" onclick="clickSeat(this)">C8</div>
-                        </div>
-                    </div>
-
-                    <div class="col3">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">C9</div>
-                            <div class="seat" onclick="clickSeat(this)">C10</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col1">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">D1</div>
-                            <div class="seat" onclick="clickSeat(this)">D2</div>
-                        </div>
-                    </div>
-
-                    <div class="col2">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">D3</div>
-                            <div class="seat" onclick="clickSeat(this)">D4</div>
-                        </div>
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">D5</div>
-                            <div class="seat" onclick="clickSeat(this)">D6</div>
-                        </div>
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">D7</div>
-                            <div class="seat" onclick="clickSeat(this)">D8</div>
-                        </div>
-                    </div>
+                    <a href="payment.html" style="text-decoration: none;">
+                        <button class="btn-summary" id="btn-summary">RINGKASAN ORDER(0)</button>
+                    </a>
                     
-                    <div class="col3">
-                        <div class="seat-group">
-                            <div class="seat" onclick="clickSeat(this)">D9</div>
-                            <div class="seat" onclick="clickSeat(this)">D10</div>
-                        </div>
-                    </div>
+                    <button id="btn-undo" class="btn-undo-style">Batal Pilih (UNDO)</button>
                 </div>
-
-                <svg width="850" height="80" viewBox="0 0 850 80" xmlns="http://www.w3.org/2000/svg" class="layar">
-                    <path d="M 50 10 Q 425 100 800 10"
-                            stroke="#686868"
-                            stroke-width="5"
-                            fill="none" 
-                            stroke-linecap="round"/>
-                </svg>
             </div>
+        </main>
+    </div>
 
-                <div class="info-order">
-                    <div class="box">
-                        <div class="totalHarga" id="totalHarga">Total Harga</div>
-                    </div>
-
-                    <div class="box">
-                        <div class="tempatDuduk" id="tempatDuduk">Tempat Duduk</div>
-                    </div>
-
-                    <a href="payment.html" class="ringkasan-order">RINGKASAN ORDER (...)</a>
-                </div>
-                
-        </div>
-
-        <script>
-            let history = [];
-            let redoStack = [];
-
-            const hargaPerKursi = 50000;
-
-            const sudahDipesan = ['A5', 'B3', 'C7'];
-
-            document.querySelectorAll('.seat').forEach(seat => {
-                if (sudahDipesan.includes(seat.textContent.trim())) {
-                    seat.classList.add('dipesan');
-                }
-            });
-
-            function clickSeat(el) {
-                if (el.classList.contains('dipesan')) return;
-
-                history.push(el.textContent.trim());
-                redoStack = [];
-
-                el.classList.toggle('dipilih');
-
-                updateInfo();
-            }
-
-            function updateInfo() {
-                const dipilih = document.querySelectorAll('.seat.dipilih');
-                const jumlah = dipilih.length
-                const total = jumlah * hargaPerKursi;
-
-                const namaKursi = Array.from(dipilih)
-                    .map(s => s,textContent.trim())
-                    .join(', ');
-
-                document.getElementById('totalHarga').textContent = 'Rp' + total.toLocaleString('id-ID');
-                document.getElementById('tempatDuduk'). textContent = namaKursi || '-';
-            }
-
-            function undo() {
-                if (history.length === 0) return;
-
-                const last = history.pop();
-                redoStack.push(last);
-
-                document.querySelectorAll('.seat').forEach(seat => {
-                    if (seat.textContent.trim() === last) {
-                        seat.classList.toggle('dipilih');
-                    }
-                });
-
-                updateInfo();
-            }
-
-            function redo() {
-                if (redoStack.length === 0) return;
-
-                const next = redoStack.pop();
-                history.push(next);
-
-                document.querySelectorAll('.seat').forEach(seat => {
-                    if (seat.textContent.trim() === next) {
-                        seat.classList.toggle('dipilih');
-                    }
-                });
-
-                updateInfo();
-            }
-        </script>
-    </body>
+    <script src="script/wasm_seat.js"></script>
+    <script src="script/seat.js"></script>
 </body>
 </html>

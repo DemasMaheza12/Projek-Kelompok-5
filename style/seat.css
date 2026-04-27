@@ -1,0 +1,238 @@
+/* =========================================
+  TAMPILAN BOOKING SEAT (Merged & Cleaned)
+   ========================================= */
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #050314;	
+}
+
+
+
+
+
+.top {
+  display: flex;
+	/* background-color: blue	; */
+	width: 100%;
+	max-width: 1180px;
+  margin: 0 auto;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 50px;
+}
+
+.judul {
+	font-size: 46px;
+	font-weight: normal;
+	color: white;
+}
+
+.highlight {
+	color: #f89b29;
+	font-weight: bold;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Container Utama --- */
+.booking-container {
+	display: flex;
+	gap: 40px;
+	background-color: white;
+	padding: 40px;
+	border-radius: 15px;
+	width: 100%;
+	max-width: 1100px;
+	color: #333; 
+    margin: 0 auto; /* Menjaga kontainer tetap di tengah */
+}
+
+/* --- Area Kiri (Peta Kursi) --- */
+.seat-area {
+	flex: 1;
+}
+
+.seat-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid #ddd;
+	padding-bottom: 15px;
+	margin-bottom: 30px;
+}
+
+.seat-header h2 {
+	font-size: 24px;
+	color: #333; /* Warna gelap agar kontras di background putih */
+    font-weight: bold;
+}
+
+.legend {
+	display: flex;
+	gap: 20px;
+}
+
+.legend-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	color: #666;
+}
+
+.box {
+	width: 24px;
+	height: 24px;
+	border-radius: 4px;
+}
+
+/* Warna Status Kursi */
+.tersedia { background-color: #0b064c; }
+.dipesan { background-color: #f89b29; }
+.dipilih { background-color: #38bdf8; }
+
+.seat-map {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+	gap: 35px; /* Jarak lorong bioskop */
+}
+
+.seat-block {
+	display: flex;
+	gap: 10px;
+}
+
+/* Tombol Kursi */
+.seat {
+	width: 45px;
+	height: 45px;
+	border: none;
+	border-radius: 6px;
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+	background-color: #0b064c; /* Default: Tersedia */
+	cursor: pointer;
+	transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.seat:hover:not(.dipesan) {
+	transform: scale(1.1); /* Efek membesar dari kode asli seat2.css */
+}
+
+.seat.dipesan {
+	background-color: #f89b29;
+	cursor: not-allowed;
+}
+
+.seat.dipilih {
+	background-color: #38bdf8;
+}
+
+/* --- Area Layar Bioskop --- */
+.screen-container {
+	margin-top: 50px;
+	text-align: center;
+	color: #aaa;
+	font-size: 18px;
+}
+
+.screen-curve {
+	height: 25px;
+	border-top: 4px solid #888;
+	border-radius: 50% / 100% 100% 0 0; 
+	width: 70%;
+	margin: 0 auto 15px;
+}
+
+/* --- Area Kanan (Panel Info) --- */
+.sidebar-info {
+	width: 260px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.info-card {
+	background-color: #e2e2e2;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.info-label {
+	font-size: 14px;
+	color: #333;
+	margin-bottom: 15px;
+	font-weight: 500;
+}
+
+.info-price {
+	color: #f89b29;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.selected-seats-list {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.seat-badge {
+	background-color: #0b064c;
+	color: white;
+	padding: 6px 10px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* Tombol Ringkasan & Undo */
+.btn-summary {
+    width: 100%;
+	background-color: #050314;
+	color: #f89b29;
+	border: none;
+	padding: 18px;
+	border-radius: 8px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: auto; 
+	transition: background-color 0.3s;
+}
+
+.btn-summary:hover {
+	background-color: #120b66;
+}
+
+.btn-undo-style {
+	background-color: transparent;
+	color: #888;
+	border: 1px solid #888;
+	padding: 12px;
+	border-radius: 8px;
+	font-weight: bold;
+	cursor: pointer;
+    font-size: 12px;
+	transition: all 0.2s;
+}
+
+.btn-undo-style:hover {
+	background-color: #fce4e4;
+	color: #d93025;
+	border-color: #d93025;
+}
