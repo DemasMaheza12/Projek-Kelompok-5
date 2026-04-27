@@ -1,6 +1,5 @@
-/* Basic Reset */
 body { 
-    background-color: #050314; /* Warna biru gelap Zodiac */
+    background-color: #02002E;
     color: white; 
     display: flex; 
     justify-content: center; 
@@ -8,18 +7,46 @@ body {
     font-family: sans-serif; 
     margin: 0;
 }
-.cinema-app { width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center;}
+.cinema-app { 
+    width: 100%; 
+    max-width: 900px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;}
 
 /* Header */
-.header-cetak { width: 100%; text-align: left; margin-bottom: 50px; padding-left: 20px;}
-.judul { font-size: 36px; font-weight: normal; margin: 0; }
-.highlight { color: #f89b29; font-weight: bold; }
-.highlight-white { color: white; font-weight: bold; }
+.header-cetak { 
+    width: 100%; 
+    text-align: left; 
+    margin-bottom: 50px; 
+    padding-left: 20px;
+}
 
-.cetak-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.judul {
+    font-family: 'Roboto';
+    font-size: 4rem;
+    font-weight: 400;
+    color: white;
+	margin-bottom: 1rem;
+}
 
-/* TICKET STYLING */
-/* Cari dan ubah bagian ini di cetak.css */
+.highlight {
+    font-family: 'Rockwell';
+    color: #FFA412;
+}
+
+.highlight-white { 
+    color: white; 
+    font-weight: bold; 
+}
+
+.cetak-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+}
+
 .ticket-wrapper {
     display: flex;
     background-color: transparent;
@@ -41,8 +68,23 @@ body {
 }
 
 /* Bagian Kiri & Kanan */
-.ticket-left { width: 30%; background-color: white; border-radius: 15px 0 0 15px; display: flex; flex-direction: column; overflow: hidden; }
-.ticket-right { width: 70%; background-color: white; border-radius: 0 15px 15px 0; display: flex; flex-direction: column; overflow: hidden; }
+.ticket-left { 
+    width: 30%; 
+    background-color: white; 
+    border-radius: 15px 0 0 15px; 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+}
+
+.ticket-right { 
+    width: 70%; 
+    background-color: white; 
+    border-radius: 0 15px 15px 0; 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+}
 
 /* Header Oranye Tiket */
 .ticket-header {
@@ -53,8 +95,16 @@ body {
     padding: 0 20px;
     color: #333;
 }
-.ticket-header h3 { margin: 0; font-size: 18px; font-weight: normal; }
-.right-align { justify-content: flex-end; }
+
+.ticket-header h3 { 
+    margin: 0; 
+    font-size: 18px; 
+    font-weight: normal; 
+}
+
+.right-align { 
+    justify-content: flex-end; 
+}
 
 /* Body Tiket (Warna Putih) */
 .ticket-body {
@@ -62,12 +112,32 @@ body {
     padding: 20px;
     color: #333;
 }
-.center-content { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.center-content { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
 
 /* Detail Kiri */
-.label-text { font-size: 12px; color: #888; margin: 0 0 5px 0; }
-.booking-number { font-size: 24px; letter-spacing: 2px; margin: 0 0 20px 0; color: #333; }
-.qr-img { width: 120px; height: 120px; object-fit: contain; }
+.label-text { 
+    font-size: 12px; 
+    color: #888; 
+    margin: 0 0 5px 0; 
+}
+
+.booking-number { 
+    font-size: 24px; 
+    letter-spacing: 2px; 
+    margin: 0 0 20px 0; 
+    color: #333; 
+}
+
+.qr-img { 
+    width: 120px; 
+    height: 120px; 
+    object-fit: contain; 
+}
 
 /* Garis Putus-putus Tengah & Coakan */
 .ticket-divider {
@@ -81,43 +151,96 @@ body {
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: #050314; /* Sama dengan background body */
+    background-color: #02002E; /* Sama dengan background body */
     border-radius: 50%;
     left: -21px; /* Posisi di tengah garis */
 }
-.notch-top { top: -20px; }
-.notch-bottom { bottom: -20px; }
+
+.notch-top { 
+    top: -20px; 
+}
+
+.notch-bottom { 
+    bottom: -20px; 
+}
 
 /* Detail Kanan */
-.flex-row { display: flex; gap: 30px; align-items: center; height: 100%; box-sizing: border-box; }
-.poster-mini { width: 140px; height: 200px; border-radius: 10px; object-fit: cover; box-shadow: 0 5px 10px rgba(0,0,0,0.2); }
-.ticket-info { flex: 1; }
-.movie-title { font-size: 28px; margin: 0 0 20px 0; color: #000; }
+.flex-row { 
+    display: flex; 
+    gap: 30px; 
+    align-items: center; 
+    height: 100%; 
+    box-sizing: border-box; 
+}
 
-.info-table { width: 100%; border-collapse: collapse; }
-.info-table td { padding: 5px 0; font-size: 14px; }
-.col-label { width: 80px; color: #666; }
-.col-value { font-weight: bold; color: #333; }
+.poster-mini { 
+    width: 140px; 
+    height: 200px; 
+    border-radius: 10px; 
+    object-fit: cover; 
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2); 
+}
+
+.ticket-info { 
+    flex: 1; 
+}
+
+.movie-title { 
+    font-size: 28px; 
+    margin: 0 0 20px 0; 
+    color: #000; 
+}
+
+.info-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.info-table td { 
+    padding: 5px 0; 
+    font-size: 14px; 
+}
+
+.col-label { 
+    width: 80px; 
+    color: #666; 
+}
+
+.col-value { 
+    font-weight: bold; 
+    color: #333; 
+}
 
 /* Tombol Cetak */
 .btn-cetak {
-    background-color: #f89b29;
-    color: white;
+    background: #FFA412;
     border: none;
-    padding: 15px 100px;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
+    border-radius: 25px;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 4rem;
+    color: white;
+	font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: unset;
     cursor: pointer;
-    transition: 0.3s;
 }
-.btn-cetak:hover { background-color: #e08920; }
+
+.btn-cetak:hover {
+    box-shadow: 0 6px 20px rgba(255, 164, 18, 0.5);
+}
 
 /* CSS KHUSUS PRINT - Menyembunyikan elemen yang gak perlu diprint */
 /* CSS KHUSUS PRINT - Menyembunyikan elemen yang gak perlu diprint */
 @media print {
-    body { background-color: white; padding: 0; }
-    .header-cetak, .btn-cetak { display: none; } /* Sembunyikan judul utama dan tombol */
+    body { 
+        background-color: white; 
+        padding: 0; 
+    }
+
+    .header-cetak, .btn-cetak { 
+        display: none; } /* Sembunyikan judul utama dan tombol */
     
     .ticket-wrapper { 
         filter: none; 
