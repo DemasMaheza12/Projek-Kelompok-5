@@ -80,6 +80,11 @@ header {
 	margin-bottom: 50px;
 }
 
+/* Tambahkan ini di bawah blok CSS header atau .btn-about */
+.nav-buttons {
+	display: flex;
+	gap: 15px; /* Jarak antara tombol about dan history */
+}
 
 .btn-about {
 	background-color: #F89B29;
@@ -319,4 +324,8 @@ main {
 .btn-jam:hover {
 	background-color:  rgba(255, 255, 255, 0.7);
 	transform: scale(1.05);
+}
+
+.btn-jam:active {
+	background-color: rgba(255, 255, 255, 0.3);
 }

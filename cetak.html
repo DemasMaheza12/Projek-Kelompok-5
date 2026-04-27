@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Cinemas - Cetak Tiket</title>
+    <link rel="stylesheet" href="style/cetak.css">
+</head>
+<body>
+    <div class="cinema-app">
+        <header class="header-cetak">
+            <h1 class="judul"><span class="highlight">Zodiac</span> cinemas</h1>
+        </header>
+
+        <main class="cetak-container">
+            <div class="ticket-wrapper">
+                
+                <div class="ticket-left">
+                    <div class="ticket-header">
+                        <h3><span class="highlight-white">Zodiac</span> cinemas</h3>
+                    </div>
+                    <div class="ticket-body center-content">
+                        <p class="label-text">Kode Booking</p>
+                        <h2 id="booking-code" class="booking-number">-----</h2>
+                        <img id="qr-code-img" src="" alt="QR Code" class="qr-img">
+                    </div>
+                </div>
+
+                <div class="ticket-divider">
+                    <div class="notch-top"></div>
+                    <div class="notch-bottom"></div>
+                </div>
+
+                <div class="ticket-right">
+                    <div class="ticket-header right-align">
+                        <h3><span class="highlight-white">Zodiac</span> cinemas</h3>
+                    </div>
+                    <div class="ticket-body flex-row">
+                        <img src="" id="ticket-poster" alt="Poster Film" class="poster-mini">
+                        <div class="ticket-info">
+                            <h2 id="ticket-movie-title" class="movie-title">JUDUL FILM</h2>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="col-label">Tanggal</td>
+                                    <td id="ticket-date" class="col-value">-- --- ----</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-label">Bioskop</td>
+                                    <td class="col-value">PONDOK LABU, STUDIO 1</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-label">Jam</td>
+                                    <td id="ticket-time" class="col-value">--:--</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-label">Tiket</td>
+                                    <td id="ticket-seats" class="col-value">-</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button id="btn-print" class="btn-cetak">CETAK</button>
+        </main>
+    </div>
+
+    <script src="script/cetak.js"></script>
+</body>
+</html>

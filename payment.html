@@ -1,87 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
-    <link rel="stylesheet" href="style/style_payment.css">
+    <title>Zodiac Cinemas - Pembayaran</title>
+    <link rel="stylesheet" href="style/payment.css">
 </head>
 <body>
+    <div class="cinema-app">
+        <header>
+            <a href="seat2.html"><button class="btn-about">Kembali</button></a>
+            <h1 class="judul"><span class="highlight">Zodiac</span> cinemas</h1>
+        </header>
 
-    <div class="navbar">
-        <a href="seat.html" class="back">Back</a>
-        <div class="zodiac"><span>Zodiac</span>  cinemas</div>
-    </div>
-
-    <div class="container">
-
-        <div class="kiri">
-                <div class="card">
-                    <img src="Film/BeWithYou.jpg" alt="Be With You" class="film-poster">
+        <main class="payment-container">
+            <div class="movie-info-pane">
+                <img src="img/bwy.jpg" alt="Poster Film" id="pay-poster" class="poster-img">
+                <div class="movie-desc">
+                    <p class="brand-text"><span class="highlight">Zodiac</span> cinemas</p>
+                    <h2 id="pay-movie-title">JUDUL FILM</h2>
+                    <p class="studio-text">STUDIO 1, PONDOK LABU</p>
+                    <p class="time-text" id="pay-time">Jam Tayang</p>
                 </div>
-            <div class="info-film">
-                <div class="nama-bioskop"><span>Zodiac</span> cinemas</div>
-                <div class="judul-film">Be With You</div>
-                <div class="rate">⭐ 8.0</div>
-                <div class="studio">Studio 1</div>
-                <div class="tanggal">Jumat, 10 April 2026</div>
-            </div>
-        </div>
-
-        <div class="kanan">
-            <div class="detail-transaksi">Detail Transaksi</div>
-
-            <div class="info-row">
-                <div class="label">KURSI</div>
-                <div class="seat">A1, A2</div>
             </div>
 
-            <div class="info-row">
-                <div class="label">2 TIKET</div>
-                <div class="seat harga">Rp100.000 <span>x 2</span></div>
-            </div>
-
-            <div class="payment">Metode Pembayaran</div>
-
-            <div class="line"></div>
-
-            <div class="metode-payment">
-                <button class="metode-button" onclick="pilihMetode(this)">
-                    <div class="metode-icon dana"><img src="icon_payment/dana.jpg" alt=""></div>
-                    DANA
-                </button>
-
-                <button class="metode-button" onclick="pilihMetode(this)">
-                    <div class="metode-icon tunai"><img src="icon_payment/tunai.png" alt=""></div>
-                    Tunai
-                </button>
-
-                <button class="metode-button" onclick="pilihMetode(this)">
-                    <div class="metode-icon debit"><img src="icon_payment/debit2.jpg" alt=""></div>
-                    Debit
-                </button>
-            </div>
-
-            <div class="garis"></div>
-
-                <div class="total">
-                    <div class="label-total">TOTAL BAYAR</div>
-                    <div class="label-harga">Rp200.000</div>
+            <div class="transaction-pane">
+                <h3>Detail Transaksi</h3>
+                
+                <div class="detail-row">
+                    <span id="pay-ticket-count">0 TIKET</span>
+                    <span id="pay-seats">Kursi: -</span>
+                </div>
+                <div class="detail-row harga-row">
+                    <span>KURSI</span>
+                    <span id="pay-subtotal">Rp 0 x 0</span>
                 </div>
 
-                <a href="tiket.html" class="finish">SELESAIKAN PEMBAYARAN</a>
+                <div class="divider"></div>
+
+                <h4 class="method-title">Metode Pembayaran</h4>
+                <div class="payment-methods">
+                    <button class="btn-method">Dana</button>
+                    <button class="btn-method active">Tunai</button>
+                    <button class="btn-method">Debit</button>
+                </div>
+
+                <div class="total-row">
+                    <span>TOTAL BAYAR</span>
+                    <h2 id="pay-total-price">Rp 0</h2>
+                </div>
+
+                <button id="btn-pay" class="btn-pay-submit">SELESAIKAN PEMBAYARAN</button>
+            </div>
+        </main>
+
+        <div id="queue-overlay" class="hidden">
+            <h2>Memproses Antrean Sistem...</h2>
+            <div id="visual-queue">
+                </div>
+            <p id="queue-status-text">Menunggu antrean...</p>
         </div>
     </div>
 
-    <script>
-        function pilihMetode(el) {
-            if (el.classList.contains('active')) {
-                el.classList.remove('active');
-            } else {
-                document.querySelectorAll('.metode-button').forEach(b => b.classList.remove('active'));
-                el.classList.add('active');
-            }
-        }
-    </script>
+    <script src="script/wasm_payment.js"></script>
+    <script src="script/payment.js"></script>
 </body>
 </html>

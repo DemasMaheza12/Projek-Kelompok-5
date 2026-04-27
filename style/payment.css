@@ -1,0 +1,128 @@
+/* Import basic reset dan background dari main/seat */
+body { background-color: #050314; color: white; display: flex; justify-content: center; padding: 40px; font-family: sans-serif; }
+.cinema-app { width: 100%; max-width: 1000px; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.btn-about { background-color: transparent; color: #888; border: 1px solid #888; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+.judul { font-size: 36px; font-weight: normal; }
+.highlight { color: #f89b29; font-weight: bold; }
+
+/* Payment Container */
+.payment-container {
+    background-color: white; color: #333;
+    display: flex; border-radius: 15px; padding: 40px; gap: 40px;
+}
+
+/* Left Pane */
+/* Ganti kode ini di payment.css milikmu */
+.movie-info-pane { 
+    display: flex; 
+    gap: 30px; /* Jarak antara poster dan teks diperlebar */
+    flex: 1; 
+    align-items: flex-start; /* Membuat teks sejajar dengan bagian atas poster */
+}
+
+.poster-img { 
+    width: 170px; /* Lebar poster disesuaikan */
+    height: 250px; /* Tinggi poster dipaksa agar memanjang */
+    border-radius: 10px; 
+    object-fit: cover; 
+}
+
+.movie-desc h2 { 
+    font-size: 32px; /* Judul film dibesarkan sedikit */
+    margin: 15px 0 10px 0; 
+    color: #333;
+}
+.brand-text { color: #f89b29; font-weight: bold; font-size: 14px; }
+.cinemas-text { color: #888; }
+.movie-desc h2 { font-size: 28px; margin: 10px 0; }
+.studio-text, .time-text { font-size: 14px; color: #666; margin-bottom: 5px; }
+
+/* Right Pane */
+.transaction-pane { flex: 1; display: flex; flex-direction: column; }
+.transaction-pane h3 { font-size: 16px; margin-bottom: 20px; }
+.detail-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 15px; }
+.harga-row { color: #666; }
+.divider { height: 1px; background-color: #eee; margin: 20px 0; }
+
+.method-title { text-align: center; font-size: 14px; margin-bottom: 15px; }
+.payment-methods { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; }
+.btn-method {
+    background-color: #eee; border: none; padding: 10px 20px;
+    border-radius: 8px; cursor: pointer; font-weight: bold; color: #555; transition: 0.3s;
+}
+.btn-method.active, .btn-method:hover { background-color: #ccc; color: black; }
+
+.total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.total-row h2 { color: #0b064c; font-size: 24px; }
+
+.btn-pay-submit {
+    background-color: #0b064c; color: #f89b29; border: none;
+    padding: 18px; border-radius: 8px; font-weight: bold; font-size: 16px;
+    cursor: pointer; transition: 0.3s;
+}
+.btn-pay-submit:hover { background-color: #120b66; }
+
+/* Loading Overlay */
+#queue-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); display: flex; flex-direction: column;
+    justify-content: center; align-items: center; z-index: 100;
+}
+#queue-overlay.hidden { display: none; }
+.loader { border: 6px solid #f3f3f3; border-top: 6px solid #f89b29; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin-bottom: 20px; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+#visual-queue {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+    padding: 20px;
+    overflow: hidden;
+    min-height: 80px;
+}
+
+.queue-node {
+    background-color: #f89b29;
+    color: #0b064c;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 150px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    animation: slideIn 0.4s ease-out forwards;
+}
+
+/* Membuat tanda panah (pointer next) antar kotak */
+.queue-node::after {
+    content: "→";
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 24px;
+}
+.queue-node:last-child::after {
+    content: ""; /* Node terakhir tidak menunjuk ke mana-mana (nullptr) */
+}
+
+/* Animasi node yang sedang diproses (Dequeue) */
+.queue-node.processing {
+    background-color: #4CAF50; /* Warna hijau */
+    color: white;
+    animation: popOut 0.5s ease-in forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes popOut {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-50px); opacity: 0; }
+}
