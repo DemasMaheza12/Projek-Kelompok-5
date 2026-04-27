@@ -60,6 +60,7 @@ body {
 	min-width: 100vh;
 	overflow-x: hidden;
 	padding: 50px 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
 }
 
 .cinema-app {
@@ -81,21 +82,21 @@ header {
 }
 
 .btn-about {
-	background-color: #F89B29;
-	color: white;
-	border: none;
-	border-radius: 20px;
-	pad: 8px 24px;
-	font-weight: bold;
-	font-size: 16px;
-	cursor: pointer;
-	padding: 10px;
-	width: 100px;
-	transition: transform 0.2s, background-color 0.2s;
+    background: #FFA412;
+    border: none;
+    border-radius: 25px;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2.5rem;
+    color: white;
+    font-size: 1.4rem;
+    text-decoration: unset;
+    cursor: pointer;
 }
 
 .btn-about:hover {
-	background-color: #ffa840;
+    box-shadow: 0 6px 20px rgba(255, 164, 18, 0.5);
 }
 
 .zodiac {
@@ -197,7 +198,6 @@ main {
   pointer-events: auto;
 }
 
-
 .movie-detail {
 	display: grid;
 	grid-template-columns: 60px 1fr 60px;
@@ -279,7 +279,6 @@ main {
 	opacity: 1;
 	margin-top: 30px;
 }
-
 
 .jadwal-judul {
 	text-align: left;
