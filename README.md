@@ -51,4 +51,4 @@ trus jalanin di vscode masing masing
 
 
 ini buat nge compile
-emcc main.cpp -o app.js --bind
+emcc main.cpp.cpp -o app.js --bind

@@ -1,111 +1,106 @@
-const movie = document.querySelectorAll('.film');
+let movie = [];
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 const genreText = document.querySelector('.genre');
 const titleText = document.querySelector('.title');
+const ratingText = document.querySelector('.rating');
 const tombolPesan = document.querySelector('.btn-pesan');
 const jadwalMenu = document.querySelector('.jadwal-menu');
 
-let currentIndex = 1; // Akan dioverride oleh C++ nanti
+let currentIndex = 1;
 
-// 1. Fungsi Render Visual (Mengatur CSS Class)
 function updateCarousel() {
-  let total = movie.length;
+    let total = movie.length;
+    if (total === 0) return; // ✅ Guard clause
 
-  let prev3Index = (currentIndex - 3 + total) % total;
-  let prev2Index = (currentIndex - 2 + total) % total;
-  let prevIndex = (currentIndex - 1 + total) % total;
-  let nextIndex = (currentIndex + 1) % total;
-  let next2Index = (currentIndex + 2) % total;
-  let next3Index = (currentIndex + 3) % total;
+    let prev3Index = (currentIndex - 3 + total) % total;
+    let prev2Index = (currentIndex - 2 + total) % total;
+    let prevIndex  = (currentIndex - 1 + total) % total;
+    let nextIndex  = (currentIndex + 1) % total;
+    let next2Index = (currentIndex + 2) % total;
+    let next3Index = (currentIndex + 3) % total;
 
-  // Reset semua class
-  movie.forEach(card => {
-    card.className = 'film';
-  });
+    movie.forEach(card => { card.className = 'film'; });
 
-  // Tambahkan class animasi
-  movie[prev3Index].classList.add('hilang-kiri');
-  movie[prev2Index].classList.add('kiri-luar');
-  movie[prevIndex].classList.add('kiri');
-  movie[currentIndex].classList.add('tengah');
-  movie[nextIndex].classList.add('kanan');
-  movie[next2Index].classList.add('kanan-luar');
-  movie[next3Index].classList.add('hilang-kanan');
+    movie[prev3Index].classList.add('hilang-kiri');
+    movie[prev2Index].classList.add('kiri-luar');
+    movie[prevIndex].classList.add('kiri');
+    movie[currentIndex].classList.add('tengah');
+    movie[nextIndex].classList.add('kanan');
+    movie[next2Index].classList.add('kanan-luar');
+    movie[next3Index].classList.add('hilang-kanan');
 }
 
-// ==========================================
-// 2. INTEGRASI WEBASSEMBLY (C++)
-// ==========================================
-
-// Tunggu sampai Emscripten selesai memuat module C++
-Module.onRuntimeInitialized = function() {
-    
-    // Inisialisasi data Linked List di C++
+Module.onRuntimeInitialized = function () {
     Module._init_carousel_data();
 
-    // Render awal
-    renderDataFromCpp();
-    
-    // Event Listener Navigasi WebAssembly
+    renderAllMovies();               // ✅ Render semua card dulu
+    Module._set_current_by_index(1); // ✅ Reset posisi C++ ke index 1
+    renderDataFromCpp();             // ✅ Baru render data & posisi visual
+
     nextBtn.addEventListener('click', () => {
-      Module._move_next_cpp(); // C++ menggeser pointer current->next
-      renderDataFromCpp();
-      jadwalMenu.classList.remove('tampil');
+        Module._move_next_cpp();
+        renderDataFromCpp();
     });
-    
+
     prevBtn.addEventListener('click', () => {
-      Module._move_prev_cpp(); // C++ menggeser pointer current->prev
-      renderDataFromCpp();
-      jadwalMenu.classList.remove('tampil');
+        Module._move_prev_cpp();
+        renderDataFromCpp();
     });
 };
 
-// Fungsi untuk menarik data hasil hitungan C++ ke HTML
 function renderDataFromCpp() {
-    // 1. Ambil indeks posisi Node saat ini dari C++
     currentIndex = Module._get_current_index();
-    
-    // 2. Ambil teks dari C++ dan ubah formatnya
+
     const titleFromC = UTF8ToString(Module._get_current_title());
     const genreFromC = UTF8ToString(Module._get_current_genre());
-    
-    // 3. Tampilkan di layar HTML
+    const img        = UTF8ToString(Module._get_current_image_path());
+    const rating     = UTF8ToString(Module._get_current_rating());
+
+    updateCarousel(); // ✅ Update posisi visual
+
+    const activeImg = document.querySelector('.film.tengah img');
+    if (activeImg) activeImg.src = img;
+
     titleText.textContent = titleFromC;
     genreText.textContent = genreFromC;
-    
-    // 4. Update posisi CSS poster
-    updateCarousel();
+    ratingText.textContent = `anjg : ${rating}`;
 }
 
-// Interaksi Menu Jadwal
+function renderAllMovies() {
+    const carousel = document.querySelector('.carousel');
+    carousel.innerHTML = ""; // Kosongkan dulu
+
+    for (let i = 0; i < 12; i++) {
+        Module._set_current_by_index(i);
+
+        const img = UTF8ToString(Module._get_current_image_path());
+
+        const card = document.createElement('article');
+        card.className = 'film';
+
+        const image = document.createElement('img');
+        image.src = img;
+        image.alt = UTF8ToString(Module._get_current_title());
+
+        card.appendChild(image);
+        carousel.appendChild(card);
+    }
+
+    movie = Array.from(document.querySelectorAll('.film')); // ✅ Ambil SETELAH render
+}
+
+// Jadwal menu toggle
 tombolPesan.addEventListener('click', () => {
-  jadwalMenu.classList.toggle('tampil');
+    jadwalMenu.classList.toggle('tampil');
 });
 
-// ==========================================
-// LOGIKA PENYIMPANAN LOCAL STORAGE
-// ==========================================
-
-// Tangkap semua tombol jam tayang
+// Local Storage
 const jamButtons = document.querySelectorAll('.btn-jam');
-
 jamButtons.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        // Ambil judul film dari elemen HTML yang sedang aktif saat ini
-        const judulFilmAktif = titleText.textContent; 
-        
-        // Ambil teks jam yang diklik (misal: "12:00")
-        const jamTayang = this.textContent;
-
-        // 1. SIMPAN KE LOCAL STORAGE
-        // 'zodiac_movie' dan 'zodiac_time' adalah nama kunci (key) buatan kita
-        localStorage.setItem('zodiac_movie', judulFilmAktif);
-        localStorage.setItem('zodiac_time', jamTayang);
-
-        console.log("Berhasil menyimpan ke laci: " + judulFilmAktif + " jam " + jamTayang);
-        
-        // Karena elemen <a> memiliki href="seat.html", browser akan otomatis
-        // pindah halaman setelah kode di atas selesai dieksekusi.
+    btn.addEventListener('click', function () {
+        localStorage.setItem('zodiac_movie', titleText.textContent);
+        localStorage.setItem('zodiac_time', this.textContent);
+        console.log("Tersimpan: " + titleText.textContent + " jam " + this.textContent);
     });
 });
