@@ -327,6 +327,10 @@ header {
     animation: popOut 0.5s ease-in forwards;
 }
 
+#queue-overlay {
+    color: white;
+}
+
 @keyframes slideIn {
     from { transform: translateX(50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
