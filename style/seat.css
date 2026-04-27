@@ -31,7 +31,7 @@ body {
 }
 
 .btn-about:hover {
-    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 164, 18, 0.5);
 }
 
 .zodiac {
