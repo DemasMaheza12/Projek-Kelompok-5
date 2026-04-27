@@ -81,7 +81,7 @@ Module.onRuntimeInitialized = () => {
                 try {
                     const ptr = stringToNewUTF8(this.textContent);
                     Module._push_seat(ptr);
-                    // Module._free(ptr);   
+                    Module._free(ptr);   
                     console.log("Sukses PUSH ke Stack C++: " + this.textContent);
                 } catch (error) {
                     console.error("Waduh, C++ Wasm Error nih:", error);

@@ -4,19 +4,24 @@
 
 namespace ZodiacCinema {
 
-    // Struct untuk menyimpan data film dan posisi indeks HTML-nya
     struct Movie {
         std::string title;
         std::string genre;
         int domIndex; 
     };
 
-    // Node Circular Doubly Linked List
     struct Node {
         Movie data;
         Node* next;
         Node* prev;
     };
+
+    // --- 7. FUNCTION TEMPLATE ---
+    // Template untuk mengecek apakah sebuah pointer valid (digunakan secara internal)
+    template <typename T>
+    bool isValid(T* ptr) {
+        return ptr != nullptr;
+    }
 
     class MovieCarousel {
     private:
@@ -26,38 +31,37 @@ namespace ZodiacCinema {
     public:
         MovieCarousel() : head(nullptr), current(nullptr) {}
 
-        // Fungsi menambah film ke ujung Linked List
+        // --- 7. FUNCTION OVERLOADING (Versi 1: Lengkap) ---
         void addMovie(std::string title, std::string genre, int index) {
             Node* newNode = new Node{{title, genre, index}, nullptr, nullptr};
-
-            if (!head) {
+            if (!isValid(head)) { // Menggunakan template
                 head = newNode;
                 head->next = head;
                 head->prev = head;
                 current = head;
             } else {
-                Node* tail = head->prev; // Node terakhir sebelum head
-                
+                Node* tail = head->prev;
                 tail->next = newNode;
                 newNode->prev = tail;
-                
                 newNode->next = head;
                 head->prev = newNode;
             }
         }
 
-        // Logic Navigasi Pointer
-        void next() { if (current) current = current->next; }
-        void prev() { if (current) current = current->prev; }
+        // --- 7. FUNCTION OVERLOADING (Versi 2: Tanpa Genre) ---
+        void addMovie(std::string title, int index) {
+            addMovie(title, "General", index);
+        }
 
-        // Getter untuk dikirim ke JavaScript
-        int getCurrentIndex() { return current ? current->data.domIndex : 0; }
-        std::string getCurrentTitle() { return current ? current->data.title : ""; }
-        std::string getCurrentGenre() { return current ? current->data.genre : ""; }
+        void next() { if (isValid(current)) current = current->next; }
+        void prev() { if (isValid(current)) current = current->prev; }
+
+        int getCurrentIndex() { return isValid(current) ? current->data.domIndex : 0; }
+        std::string getCurrentTitle() { return isValid(current) ? current->data.title : ""; }
+        std::string getCurrentGenre() { return isValid(current) ? current->data.genre : ""; }
         
-        // Fitur khusus untuk set awal karena JS kamu mulai dari index 1 ("Be With You")
         void setCurrentByIndex(int index) {
-            if (!head) return;
+            if (!isValid(head)) return;
             Node* temp = head;
             do {
                 if (temp->data.domIndex == index) {
@@ -70,29 +74,25 @@ namespace ZodiacCinema {
     };
 }
 
-// Inisialisasi Objek Global
 ZodiacCinema::MovieCarousel carousel;
 
-// Jembatan WebAssembly (Binding)
 extern "C" {
-    
-    // Inisialisasi Data dari C++ langsung
     EMSCRIPTEN_KEEPALIVE
     void init_carousel_data() {
+        // Contoh penggunaan Overloading
         carousel.addMovie("Dilan 1991", "Drama, Romance", 0);
-        carousel.addMovie("Be With You", "Fantasy, Romance", 1);
+        carousel.addMovie("Be With You", 1); // Menggunakan overloaded version (genre default: General)
         carousel.addMovie("Tak Ingin Usai di Sini", "Drama, Romance", 2);
         carousel.addMovie("Na Willa", "Drama, Musical", 3);
         carousel.addMovie("Sore: Istri dari Masa Depan", "Romance, Fantasy", 4);
-        carousel.addMovie("Danur: The Last Chapter", "Horror, Supranatural", 5);
+        carousel.addMovie("Danur: The Last Chapter", "Horror", 5);
         carousel.addMovie("The Call", "Horror, Mystery", 6);
-        carousel.addMovie("Elf", "Comedy, Fantasy", 7);
+        carousel.addMovie("Elf", "Comedy", 7);
         carousel.addMovie("Tunggu Aku Sukses Nanti", "Drama, Comedy", 8);
         carousel.addMovie("Humint", "Action, Thriller", 9);
         carousel.addMovie("5cm", "Drama, Adventure", 10);
         carousel.addMovie("Azzamine", "Drama, Romance", 11);
 
-        // Atur posisi awal ke index 1 ("Be With You") sesuai desain UI-mu
         carousel.setCurrentByIndex(1);
     }
 
@@ -105,7 +105,6 @@ extern "C" {
     EMSCRIPTEN_KEEPALIVE
     int get_current_index() { return carousel.getCurrentIndex(); }
 
-    // Harus diubah jadi c_str() agar bisa dibaca UTF8ToString di JS
     EMSCRIPTEN_KEEPALIVE
     const char* get_current_title() {
         static std::string title;

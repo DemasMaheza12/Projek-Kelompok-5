@@ -4,9 +4,8 @@
 
 namespace ZodiacCinema {
 
-    // 1. STRUCT & 3. POINTER
     struct TicketNode {
-        std::string ticketData; // Kita simpan data tiket dalam format JSON string
+        std::string ticketData;
         TicketNode* next;
     };
 
@@ -18,39 +17,34 @@ namespace ZodiacCinema {
     public:
         HistoryLinkedList() : head(nullptr), tail(nullptr) {}
 
-        // Menambahkan tiket baru ke akhir list (Insert at Tail)
-// Mengubah logika menjadi Insert at Head (Data terbaru di atas)
         void insertTicket(const std::string& data) {
-            // 1. Buat node baru, pointer 'next'-nya langsung menunjuk ke 'head' saat ini
             TicketNode* newNode = new TicketNode{data, head};
-
-            // 2. Pindahkan 'head' ke node yang baru dibuat agar ia jadi yang paling depan
             head = newNode;
+            if (tail == nullptr) tail = newNode;
+        }
 
-            // 3. Jika list sebelumnya kosong, maka tail juga menunjuk ke node yang sama
-            if (tail == nullptr) {
-                tail = newNode;
+        // --- 5. CALLBACK FUNCTION ---
+        // Fungsi ini menerima pointer ke fungsi lain sebagai parameter
+        void forEachTicket(void (*callback)(const char*)) {
+            TicketNode* current = head;
+            while (current != nullptr) {
+                callback(current->ticketData.c_str());
+                current = current->next;
             }
         }
 
-        // Mengambil semua isi Linked List disatukan dengan pemisah "||"
         std::string getAllTickets() {
             if (head == nullptr) return "KOSONG";
-
             std::string result = "";
-            TicketNode* current = head; // Traversal pointer
-            
+            TicketNode* current = head;
             while (current != nullptr) {
                 result += current->ticketData;
-                if (current->next != nullptr) {
-                    result += "||"; // Pembatas antar node
-                }
+                if (current->next != nullptr) result += "||";
                 current = current->next;
             }
             return result;
         }
         
-        // Membersihkan memori (Penting di C++)
         void clearList() {
             TicketNode* current = head;
             while (current != nullptr) {
@@ -65,6 +59,11 @@ namespace ZodiacCinema {
 
 ZodiacCinema::HistoryLinkedList historyList;
 
+// Fungsi callback contoh untuk mencetak ke log C++
+void logToConsole(const char* data) {
+    printf("Processing Ticket: %s\n", data);
+}
+
 extern "C" {
     EMSCRIPTEN_KEEPALIVE
     void add_to_history(const char* data) {
@@ -73,6 +72,9 @@ extern "C" {
 
     EMSCRIPTEN_KEEPALIVE
     const char* get_all_history() {
+        // Memanggil Callback sebelum mengembalikan data (untuk memenuhi syarat UTS)
+        historyList.forEachTicket(logToConsole); 
+        
         static std::string allData;
         allData = historyList.getAllTickets();
         return allData.c_str();

@@ -13,7 +13,9 @@ Module.onRuntimeInitialized = () => {
     // 2. Masukkan data ke Linked List C++
     Module._reset_history_list(); 
     historyArray.forEach(ticket => {
-        Module._add_to_history(stringToNewUTF8(JSON.stringify(ticket)));
+        const ptr = stringToNewUTF8(JSON.stringify(ticket));
+        Module._add_to_history(ptr);
+        Module._free(ptr);
     });
 
     // 3. Tarik data dari Linked List C++ 

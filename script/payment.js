@@ -86,7 +86,10 @@ Module.onRuntimeInitialized = () => {
         // ENQUEUE: Masukkan ke C++ dan ke UI Visual
         queueData.forEach((data, index) => {
             // Push ke memori C++
-            Module._add_to_queue(stringToNewUTF8(data));
+            // Push ke memori C++ dan bebaskan memori
+            const ptr = stringToNewUTF8(data);
+            Module._add_to_queue(ptr);
+            Module._free(ptr);
             
             // Push ke UI
             const node = document.createElement('div');
