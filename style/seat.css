@@ -32,7 +32,10 @@ body {
 }
 
 .btn-about:hover {
-    box-shadow: 0 6px 20px rgba(255, 164, 18, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 164, 18, 0.5);
+	background-color: #ffa840;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .zodiac {
