@@ -1,8 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,7 +19,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -32,29 +27,32 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 
 html {
 	scrollbar-gutter: stable;
 }
 
 body {
-	background-color: #050314;
+	background-color: #02002E;
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -68,10 +66,7 @@ body {
 	width: 100%;
 	max-width: 1400px;
 	padding: 20px;
-	/* background-color: blue; */
 }
-
-/* header ini  */
 
 header {
 	display: flex;
@@ -80,10 +75,9 @@ header {
 	margin-bottom: 50px;
 }
 
-/* Tambahkan ini di bawah blok CSS header atau .btn-about */
 .nav-buttons {
 	display: flex;
-	gap: 15px; /* Jarak antara tombol about dan history */
+	gap: 15px;
 }
 
 .btn-about {
@@ -104,14 +98,16 @@ header {
 	background-color: #ffa840;
 }
 
-.judul {
-	font-size: 46px;
-	font-weight: normal;
+.zodiac {
+    font-family: 'Roboto';
+    font-size: 4rem;
+    font-weight: 400;
+    color: white;
 }
 
-.highlight {
-	color: #f89b29;
-	font-weight: bold;
+.zodiac span {
+    font-family: 'Rockwell';
+    color: #FFA412;
 }
 
 main {
