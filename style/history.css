@@ -4,7 +4,7 @@ body {
     display: flex; 
     justify-content: center; 
     padding: 40px; 
-    font-family: sans-serif; 
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; 
 }
 
 .cinema-app { 
@@ -28,7 +28,6 @@ header {
     align-items: center;
     padding: 0.5rem 2.5rem;
     color: white;
-    font-family: 'Roboto';
     font-size: 1.4rem;
     text-decoration: unset;
     cursor: pointer;
@@ -110,7 +109,8 @@ header {
 
 .hist-studio { 
     font-size: 10px; 
-    color: #666; margin:0;}
+    color: #666; margin:0;
+}
 
 /* Coakan Tengah */
 .hist-divider {
