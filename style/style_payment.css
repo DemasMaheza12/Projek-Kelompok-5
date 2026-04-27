@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cinema-app {
@@ -37,7 +38,6 @@ header {
     align-items: center;
     padding: 0.7rem 3rem;
     color: white;
-    font-family: 'Roboto';
     font-size: 1.8rem;
     text-decoration: unset;
     cursor: pointer;
@@ -104,14 +104,12 @@ header {
 
 .brand-text { 
     font-size: 1.4rem;
-    font-family: 'Roboto';
     color: #686868;
     font-weight: 500;
     letter-spacing: 0.02em;
 }
 
 .brand-text span {
-    font-family: 'Rockwell';
     color: #FFA412;
 }
 
@@ -141,7 +139,6 @@ header {
     display: flex;
     flex-direction: column;
     padding: 2rem 2rem 1.5rem;
-    font-family: Arial, sans-serif;
 }
 
 .transaction-pane h3 { 
@@ -197,7 +194,6 @@ header {
     background: #D9D9D9;
     border: none;
     border-radius: 9px;
-    font-family: 'Roboto';
     font-size: 1.2rem;
     font-weight: 400;
     gap: 0.5rem;
