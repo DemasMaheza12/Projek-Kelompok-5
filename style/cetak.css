@@ -228,7 +228,9 @@ body {
 }
 
 .btn-cetak:hover {
-    box-shadow: 0 6px 20px rgba(255, 164, 18, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 164, 18, 0.5);
+	filter: brightness(1.2);
 }
 
 /* CSS KHUSUS PRINT - Menyembunyikan elemen yang gak perlu diprint */
