@@ -41,15 +41,17 @@ header {
 	background-color: #ffa840;
 }
 
-.judul { 
-    font-size: 32px; 
-    font-weight: normal; 
-    margin: 0;
+.judul {
+    font-family: 'Roboto';
+    font-size: 3rem;
+    font-weight: 400;
+    color: white;
+	margin-bottom: 1rem;
 }
 
 .highlight {
-    color: #f89b29; 
-    font-weight: bold; 
+    font-family: 'Rockwell';
+    color: #FFA412;
 }
 
 .history-container h3 { 
