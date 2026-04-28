@@ -56,8 +56,8 @@ body {
 	background-color: #02002E;
 	color: white;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	align-items: flex-start;
 	max-width: 100%;
 	min-height: 100vh;
 	overflow-x: hidden;
@@ -350,6 +350,11 @@ main {
 }
 
 @media (max-width: 500px) {
+	header {
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+
 	.btn-about {
 		display: flex;
 		align-items: center;
