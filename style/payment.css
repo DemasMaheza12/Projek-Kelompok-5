@@ -160,6 +160,13 @@ header {
     color: #323232;
 }
 
+#pay-seats {
+    max-width: 60%;
+    word-break: break-word;
+    text-align: right;
+    line-height: 1.6;
+}
+
 .kursi {
     font-weight: bold;
 }
