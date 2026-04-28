@@ -49,6 +49,7 @@ Module.onRuntimeInitialized = function () {
     });
 };
 
+// Logika untuk halaman pembayaran
 function renderDataFromCpp() {
     currentIndex = Module._get_current_index();
 
