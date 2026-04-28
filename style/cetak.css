@@ -87,6 +87,7 @@ body {
     border-radius: 15px 0 0 15px; 
     display: flex; 
     flex-direction: column; 
+    align-items: center;
     overflow: hidden; 
 }
 
@@ -101,6 +102,7 @@ body {
 
 /* Header Oranye Tiket */
 .ticket-header {
+    width: 100%;
     background-color: #f89b29;
     height: 60px;
     display: flex;
@@ -263,5 +265,81 @@ body {
     
     .notch-top, .notch-bottom { 
         display: none; 
+    }
+}
+
+@media (max-width: 700px) {
+    .cetak-container {
+        width: 100%;
+        height: 400px;
+    }
+
+    .poster-mini {
+        width: 100%;
+        max-width: 100px;
+    }
+
+    .ticket-body {
+        padding-left: 1.4rem;
+    }
+
+    .movie-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .info-table td {
+        font-size: 0.6rem;
+    }
+
+    .qr-img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .label-text { 
+        font-size: 10px;   
+    }
+
+    .booking-number { 
+        font-size: 21px; 
+    }
+}
+
+@media (max-width: 400px) {
+    .cetak-container {
+        width: 100%;
+        height: 350px;
+    }
+
+    .poster-mini {
+        width: 100%;
+        max-width: 80px;
+    }
+
+    .ticket-body {
+        padding-left: 1rem;
+    }
+
+    .movie-title {
+        font-size: 0.8rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .info-table td {
+        font-size: 0.4rem;
+    }
+
+    .qr-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .label-text { 
+        font-size: 8px;   
+    }
+
+    .booking-number { 
+        font-size: 19px; 
     }
 }
