@@ -1,5 +1,3 @@
-// Mengambil data film dari LocalStorage
-// Mengambil data film dari LocalStorage
 document.addEventListener('DOMContentLoaded', () => {
     const movie = localStorage.getItem('zodiac_movie');
     const time = localStorage.getItem('zodiac_time');
@@ -8,39 +6,37 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.seat-header h2').textContent = `PILIH SEAT - ${movie} (${time})`;
     }
 
-    // --- LOGIKA BARU: MENANDAI KURSI YANG SUDAH DIPESAN DARI HISTORY ---
-    
-    // 1. Ambil data history dari LocalStorage
+    // 1. Ambil data history dari LocalStorage (Kursi Dipesan/Kuning)
     const historyDataRaw = localStorage.getItem('zodiac_history');
     const historyArray = historyDataRaw ? JSON.parse(historyDataRaw) : [];
 
-    // 2. Kumpulkan semua kursi yang sudah dibeli khusus untuk film dan jam ini
     let bookedSeats = [];
     historyArray.forEach(ticket => {
-        // Cek apakah di history ada tiket dengan judul dan jam yang sama persis
         if (ticket.movie === movie && ticket.time === time) {
-            // Data kursi di history bentuknya string (contoh: "C9, C10")
-            // Kita pecah string tersebut jadi array -> ["C9", "C10"]
             const seatsArray = ticket.seats.split(', '); 
-            
-            // Gabungkan ke keranjang bookedSeats
             bookedSeats = bookedSeats.concat(seatsArray);
         }
     });
 
-    // 3. Cari semua tombol kursi di layar, kalau cocok dengan bookedSeats, ubah jadi kuning
+    // 2. Ambil data kursi yang SEDANG DIPILIH dari LocalStorage (Kursi Dipilih/Biru)
+    const selectedSeatsRaw = localStorage.getItem('zodiac_selected_seats');
+    const previouslySelectedSeats = selectedSeatsRaw ? JSON.parse(selectedSeatsRaw) : [];
+
+    // 3. Terapkan kelas CSS berdasarkan status kursi
     const allSeatButtons = document.querySelectorAll('.seat');
     allSeatButtons.forEach(btn => {
         if (bookedSeats.includes(btn.textContent)) {
-            // Tambahkan class 'dipesan' agar warnanya berubah dan tidak bisa diklik
+            // Jika sudah ada di riwayat pembelian sebelumnya
             btn.classList.add('dipesan');
+        } else if (previouslySelectedSeats.includes(btn.textContent)) {
+            // Jika statusnya sedang dipilih sebelum pindah halaman
+            btn.classList.add('dipilih');
         }
     });
     
-    // --------------------------------------------------------------------
+    // 4. Update Sidebar agar harga dan list kursi langsung muncul ketika kembali
+    updateSidebar();
 });
-
-// ... (SISA KODE DI BAWAHNYA SEPERTI updateSidebar() DAN Module.onRuntimeInitialized TETAP SAMA, BIARKAN SAJA) ...
 
 function updateSidebar() {
     const selected = document.querySelectorAll('.seat.dipilih');
@@ -67,6 +63,23 @@ Module.onRuntimeInitialized = () => {
     const seats = document.querySelectorAll('.seat');
     const undoBtn = document.getElementById('btn-undo');
 
+    // --- LOGIKA BARU: Masukkan kembali kursi ke Stack Wasm C++ ---
+    // Karena memori Wasm ter-reset saat refresh/kembali, kita perlu melakukan
+    // push ulang agar fitur Stack (tombol UNDO) tetap mengetahui data sebelumnya.
+    const selectedSeatsRaw = localStorage.getItem('zodiac_selected_seats');
+    const previouslySelectedSeats = selectedSeatsRaw ? JSON.parse(selectedSeatsRaw) : [];
+
+    previouslySelectedSeats.forEach(seatId => {
+        try {
+            const ptr = stringToNewUTF8(seatId);
+            Module._push_seat(ptr);
+            Module._free(ptr);
+        } catch (error) {
+            console.error("Gagal memuat ulang state Stack ke C++:", error);
+        }
+    });
+    // -------------------------------------------------------------
+
     seats.forEach(seat => {
         seat.addEventListener('click', function() {
             if (this.classList.contains('dipesan')) return;
@@ -74,7 +87,7 @@ Module.onRuntimeInitialized = () => {
             if (!this.classList.contains('dipilih')) {
                 this.classList.add('dipilih');
                 
-                // 1. UPDATE UI DULU (Pindah ke atas)
+                // 1. UPDATE UI DULU
                 updateSidebar();
                 
                 // 2. BARU MASUKKAN KE C++ DENGAN TRY-CATCH
@@ -90,7 +103,6 @@ Module.onRuntimeInitialized = () => {
         });
     });
 
-    // ... (Logika undoBtn di bawahnya tetap sama, tambahkan try...catch juga jika mau)
     undoBtn.addEventListener('click', () => {
         try {
             const lastSeat = UTF8ToString(Module._undo_seat());
