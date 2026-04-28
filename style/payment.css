@@ -76,7 +76,6 @@ header {
 }
 
 /* Left Pane */
-/* Ganti kode ini di payment.css milikmu */
 .movie-info-pane { 
     display: flex;
     flex-direction: row;
