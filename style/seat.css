@@ -1,53 +1,55 @@
 body {
-	margin: 0;
-	padding: 0;
-	background-color: #02002E;	
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #02002e;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .top {
-	display: flex;
-	width: 100%;
-	max-width: 1180px;
-	margin: 0 auto;
-	justify-content: space-between;
-	align-items: center;
-	padding-top: 50px;
-	margin-bottom: 1rem;
+  display: flex;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  margin-bottom: 1rem;
 }
 
-.btn-about {
-    background: #FFA412;
-    border: none;
-    border-radius: 25px;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 2.5rem;
-    color: white;
-	font-weight: bold;
-    font-size: 1.4rem;
-    text-decoration: unset;
-    cursor: pointer;
+.btn-back {
+  background: #ffa412;
+  border: none;
+  border-radius: 25px;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 2.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-decoration: unset;
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s;
 }
 
-.btn-about:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 164, 18, 0.5);
-	background-color: #ffa840;
-	transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+.btn-back:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(255, 164, 18, 0.5);
+  background-color: #ffa840;
 }
 
 .zodiac {
-    font-family: 'Roboto';
-    font-size: 4rem;
-    font-weight: 400;
-    color: white;
+  font-family: "Roboto";
+  font-size: 4rem;
+  font-weight: 400;
+  color: white;
 }
 
 .zodiac span {
-    font-family: 'Rockwell';
-    color: #FFA412;
+  font-family: "Rockwell";
+  color: #ffa412;
 }
 
 main {
@@ -57,318 +59,326 @@ main {
 
 /* --- Container Utama --- */
 .booking-container {
-	display: flex;
-	gap: 40px;
-	background-color: white;
-	padding: 40px;
-	border-radius: 15px;
-	width: 100%;
-	max-width: 1100px;
-	color: #333; 
-    margin: 0 auto; /* Menjaga kontainer tetap di tengah */
+  display: flex;
+  gap: 40px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 1100px;
+  color: #333;
+  margin: 0 auto; /* Menjaga kontainer tetap di tengah */
 }
 
 /* --- Area Kiri (Peta Kursi) --- */
 .seat-area {
-	flex: 1;
+  flex: 1;
 }
 
 .seat-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-bottom: 2px solid #ddd;
-	padding-bottom: 15px;
-	margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .seat-header h2 {
-	font-size: 24px;
-	color: #333; /* Warna gelap agar kontras di background putih */
-    font-weight: bold;
+  font-size: 24px;
+  color: #333; /* Warna gelap agar kontras di background putih */
+  font-weight: bold;
 }
 
 .legend {
-	display: flex;
-	gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .legend-item {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	font-size: 14px;
-	color: #666;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
 }
 
 .box {
-	width: 24px;
-	height: 24px;
-	border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
 }
 
 /* Warna Status Kursi */
-.tersedia { background-color: #0b064c; }
-.dipesan { background-color: #f89b29; }
-.dipilih { background-color: #38bdf8; }
+.tersedia {
+  background-color: #0b064c;
+}
+.dipesan {
+  background-color: #f89b29;
+}
+.dipilih {
+  background-color: #38bdf8;
+}
 
 .seat-map {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .row {
-	display: flex;
-	justify-content: center;
-	gap: 35px; /* Jarak lorong bioskop */
+  display: flex;
+  justify-content: center;
+  gap: 35px; /* Jarak lorong bioskop */
 }
 
 .seat-block {
-	display: flex;
-	gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 /* Tombol Kursi */
 .seat {
-	width: 45px;
-	height: 45px;
-	border: none;
-	border-radius: 6px;
-	font-weight: bold;
-	font-size: 14px;
-	color: white;
-	background-color: #0b064c; /* Default: Tersedia */
-	cursor: pointer;
-	transition: transform 0.1s ease, background-color 0.2s ease;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  background-color: #0b064c; /* Default: Tersedia */
+  cursor: pointer;
+  transition:
+    transform 0.1s ease,
+    background-color 0.2s ease;
 }
 
 .seat:hover:not(.dipesan) {
-	transform: scale(1.1); /* Efek membesar dari kode asli seat2.css */
+  transform: scale(1.1); /* Efek membesar dari kode asli seat2.css */
 }
 
 .seat.dipesan {
-	background-color: #f89b29;
-	cursor: not-allowed;
+  background-color: #f89b29;
+  cursor: not-allowed;
 }
 
 .seat.dipilih {
-	background-color: #38bdf8;
+  background-color: #38bdf8;
 }
 
 /* --- Area Layar Bioskop --- */
 .screen-container {
-	margin-top: 50px;
-	text-align: center;
-	color: #aaa;
-	font-size: 18px;
+  margin-top: 50px;
+  text-align: center;
+  color: #aaa;
+  font-size: 18px;
 }
 
 .screen-curve {
-	height: 25px;
-	border-top: 4px solid #888;
-	border-radius: 50% / 100% 100% 0 0; 
-	width: 70%;
-	margin: 0 auto 15px;
+  height: 25px;
+  border-top: 4px solid #888;
+  border-radius: 50% / 100% 100% 0 0;
+  width: 70%;
+  margin: 0 auto 15px;
 }
 
 /* --- Area Kanan (Panel Info) --- */
 .sidebar-info {
-	width: 260px;
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .info-card {
-	display: flex;
-	flex-direction: column;
-	background-color: #e2e2e2;
-	justify-content: flex-start;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #e2e2e2;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .info-cards-wrapper {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
 }
 
 .kotak {
-	padding: 20px;
-	border-radius: 10px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .info-label {
-	font-size: 14px;
-	color: #333;
-	margin-bottom: 15px;
-	font-weight: 500;
-	gap: 1rem;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 500;
+  gap: 1rem;
 }
 
 .info-price {
-	color: #f89b29;
-	font-size: 22px;
-	font-weight: bold;
+  color: #f89b29;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .selected-seats-list {
-	display: flex;
-	justify-content: center;
-	gap: 8px;
-	flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .seat-badge {
-	background-color: #0b064c;
-	color: white;
-	padding: 6px 10px;
-	border-radius: 4px;
-	font-size: 12px;
-	font-weight: bold;
+  background-color: #0b064c;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 /* Tombol Ringkasan & Undo */
 .btn-summary {
-    width: 100%;
-	background-color: #050314;
-	color: #f89b29;
-	border: none;
-	padding: 18px;
-	border-radius: 8px;
-	font-weight: bold;
-	font-size: 14px;
-	cursor: pointer;
-	margin-top: auto; 
-	transition: background-color 0.3s;
+  width: 100%;
+  background-color: #050314;
+  color: #f89b29;
+  border: none;
+  padding: 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background-color 0.3s;
 }
 
 .btn-summary:hover {
-	background-color: #120b66;
+  background-color: #120b66;
 }
 
 .btn-undo-style {
-	background-color: transparent;
-	color: #888;
-	border: 1px solid #888;
-	padding: 12px;
-	border-radius: 8px;
-	font-weight: bold;
-	cursor: pointer;
-    font-size: 12px;
-	transition: all 0.2s;
+  background-color: transparent;
+  color: #888;
+  border: 1px solid #888;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
 }
 
 .btn-undo-style:hover {
-	background-color: #fce4e4;
-	color: #d93025;
-	border-color: #d93025;
+  background-color: #fce4e4;
+  color: #d93025;
+  border-color: #d93025;
 }
 
 .ringkasan {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
 }
 
 @media (max-width: 980px) {
-    .booking-container {
-        flex-direction: column;
-    }
+  .booking-container {
+    flex-direction: column;
+  }
 
-    .btn-about {
-        padding: 0.5rem 3rem;
-    }
+  .btn-about {
+    padding: 0.5rem 3rem;
+  }
 
-    .zodiac {
-        font-size: 3rem;
-    }
+  .zodiac {
+    font-size: 3rem;
+  }
 
-	.info-card {
-		flex: 1;
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
-	}
+  .info-card {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
-	.info-cards-wrapper {
-		display: flex;
-		flex-direction: row;
-	}
+  .info-cards-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
 
-	.sidebar-info {
-        width: 100%;
-        min-width: unset;
-        flex-direction: column;
-        align-items: center;
-    }
+  .sidebar-info {
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .seat-area {
-        width: 100%;
-    }
+  .seat-area {
+    width: 100%;
+  }
 
-	.info-card.kotak {
-		display: flex;
-		flex-direction: column;
-	}
+  .info-card.kotak {
+    display: flex;
+    flex-direction: column;
+  }
 
-	.ringkasan {
-		width: 100%;
-	}
+  .ringkasan {
+    width: 100%;
+  }
 
-	.seat {
-		width: 32px;
-		height: 32px;
-		font-size: 10px;
-	}
+  .seat {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 700px) {
-    .booking-container {
-        flex-direction: column;
-    }
+  .booking-container {
+    flex-direction: column;
+  }
 
-    .zodiac {
-        font-size: 1.8rem;
-        text-align: right;
-    }
+  .zodiac {
+    font-size: 1.8rem;
+    text-align: right;
+  }
 
-    .btn-about {
-        font-size: 1.2rem;
-    }
+  .btn-about {
+    font-size: 1.2rem;
+  }
 
-	.seat-header {
-		display: flex;
-		flex-direction: column;
-	}
+  .seat-header {
+    display: flex;
+    flex-direction: column;
+  }
 
-	.sidebar-info {
-        width: 100%;
-        min-width: unset;
-        flex-direction: column;
-        align-items: center;
-    }
+  .sidebar-info {
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .seat-area {
-        width: 100%;
-    }
+  .seat-area {
+    width: 100%;
+  }
 
-	.seat {
-		width: 26px;
-		height: 26px;
-		font-size: 8px;
-	}
+  .seat {
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
+  }
 
-	.info-card.kotak {
-		display: flex;
-		flex-direction: column;
-	}
+  .info-card.kotak {
+    display: flex;
+    flex-direction: column;
+  }
 
-	.ringkasan {
-		width: 100%;
-	}
+  .ringkasan {
+    width: 100%;
+  }
 }

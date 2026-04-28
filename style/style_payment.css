@@ -29,7 +29,7 @@ header {
     margin-bottom: 0.7rem;
 }
 
-.btn-about {
+.btn-back {
     background: #FFA412;
     border: none;
     border-radius: 25px;
@@ -42,11 +42,12 @@ header {
     font-size: 1.4rem;
     text-decoration: unset;
     cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.btn-about:hover {
+.btn-back:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 164, 18, 0.5);
+    box-shadow: 0 5px 20px rgba(255, 164, 18, 0.5);
 	background-color: #ffa840;
 }
 
@@ -201,8 +202,8 @@ header {
     font-weight: 400;
     gap: 0.5rem;
     padding: 0.5rem 2rem;
-    transition: all 0.2 ease;
     cursor: pointer;
+    transition: transform 0.2s, background-color 0.15s;
 }
 
 .btn-method.active { 
@@ -218,7 +219,12 @@ header {
 }
 
 .btn-method:hover {
-    background: #999999;
+	transform: scale(1.03);
+}
+
+.btn-method:active {
+	transform: scale(1);
+    background-color: #999999; 
 }
 
 .total-row { 
