@@ -286,8 +286,21 @@ main {
 
 @media (max-width: 980px) {
   .booking-container {
+	display: flex;
     flex-direction: column;
+	width: 100%;
+	max-width: 700px;
   }
+  
+	.top {
+		display: flex;
+		width: 100%;
+		max-width: 780px;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 50px;
+		margin-bottom: 1rem;
+	}
 
   .btn-about {
     padding: 0.5rem 3rem;
@@ -339,8 +352,21 @@ main {
 
 @media (max-width: 700px) {
   .booking-container {
+	display: flex;
     flex-direction: column;
+	width: 100%;
+	max-width: 500px;
   }
+
+  	.top {
+		display: flex;
+		width: 100%;
+		max-width: 570px;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 50px;
+		margin-bottom: 1rem;
+	}
 
   .zodiac {
     font-size: 1.8rem;
@@ -376,6 +402,73 @@ main {
   .info-card.kotak {
     display: flex;
     flex-direction: column;
+  }
+
+  .ringkasan {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .booking-container {
+	display: flex;
+    flex-direction: column;
+	width: 100%;
+	max-width: 260px;
+  }
+
+  	.top {
+		display: flex;
+		width: 100%;
+		max-width: 330px;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 50px;
+		margin-bottom: 1rem;
+	}
+
+  .zodiac {
+    font-size: 1.8rem;
+    text-align: right;
+  }
+
+  .btn-about {
+    font-size: 1.2rem;
+  }
+
+  .seat-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-info {
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row {
+	gap: 1rem;
+  }
+
+  .seat-area {
+    width: 100%;
+  }
+
+  .seat {
+    width: 20px;
+    height: 20px;
+    font-size: 7px;
+  }
+
+  .info-card.kotak {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-label {
+	font-size: 0.75rem;
   }
 
   .ringkasan {
