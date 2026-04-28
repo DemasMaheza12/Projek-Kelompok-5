@@ -64,7 +64,7 @@ function renderDataFromCpp() {
 
     titleText.textContent = titleFromC;
     genreText.textContent = genreFromC;
-    ratingText.textContent = `anjg : ${rating}`;
+    ratingText.textContent = rating;
 }
 
 function renderAllMovies() {
