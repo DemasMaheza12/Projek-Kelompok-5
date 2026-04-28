@@ -1,5 +1,5 @@
-UTS_Kelompok_5
-Web pemesanan tiket bioskop untuk kasir
+# UTS_Kelompok_5
+## Web pemesanan tiket bioskop untuk kasir
 
 Semua logika inti aplikasi ini ditulis dalam bahasa C++, lalu dikompilasi menjadi WebAssembly menggunakan Emscripten agar bisa dijalankan langsung di browser. 
 
