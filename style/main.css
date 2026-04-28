@@ -24,6 +24,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
@@ -57,7 +58,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-width: 100vh;
+	min-height: 100vh;
 	overflow-x: hidden;
 	padding: 30px 20px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
@@ -90,11 +91,11 @@ header {
     align-items: center;
     padding: 0.5rem 2.5rem;
     color: white;
-		font-weight: bold;
+	font-weight: bold;
     font-size: 1rem;
     text-decoration: unset;
     cursor: pointer;
-		transition: box-shadow 0.2s ease,transform 0.2s;
+	transition: box-shadow 0.2s ease,transform 0.2s;
 }
 
 .btn-about:hover {
@@ -313,8 +314,7 @@ main {
 	font-size: 16px;
 	font-weight: bold;
 	cursor: pointer;
-	transition: all 0.3s ease	;
-
+	transition: all 0.3s ease;
 	text-decoration: none;
 	display: block;
 	text-align: center;
@@ -327,4 +327,32 @@ main {
 
 .btn-jam:active {
 	background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 900px) {
+	.cinema-app {
+		width: 100%;
+		max-width: 1400px;
+	}
+
+	.zodiac {
+		font-size: 3rem;
+		margin-left: auto;
+	}
+}
+
+@media (max-width: 700px) {
+	.zodiac {
+		font-size: 2rem;
+		text-align: right;
+	}
+}
+
+@media (max-width: 500px) {
+	.btn-about {
+		display: flex;
+		align-items: center;
+		font-size: 0.8rem;
+		width: 1rem;
+	}
 }
