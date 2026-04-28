@@ -50,6 +50,8 @@ table {
 
 html {
 	scrollbar-gutter: stable;
+	scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 body {
@@ -58,16 +60,18 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-width: 100%;
+	width: 100%;
 	min-height: 100vh;
 	overflow-x: hidden;
-	padding: 30px 20px;
+	padding: 10px 20px;
+	scrollbar-width: none;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
 }
 
 .cinema-app {
 	width: 100%;
-	max-width: 1400px;
+	max-width: 1200px;
+	max-height: 95vh;
 	padding: 20px;
 }
 
