@@ -1,3 +1,12 @@
+// --- KODE BARU: Reset pilihan kursi saat kembali ke menu utama ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Hapus data kursi yang "sedang dipilih" (keranjang draft)
+    localStorage.removeItem('zodiac_selected_seats');
+    localStorage.removeItem('zodiac_total_price');
+    // Catatan: 'zodiac_history' jangan dihapus karena itu data kursi yang SUDAH DIBAYAR
+});
+// -----------------------------------------------------------------
+
 let movie = [];
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
@@ -100,6 +109,10 @@ tombolPesan.addEventListener('click', () => {
 const jamButtons = document.querySelectorAll('.btn-jam');
 jamButtons.forEach(btn => {
     btn.addEventListener('click', function () {
+        // --- KODE BARU: Pastikan keranjang bersih-bersih lagi sebelum pindah halaman ---
+        localStorage.removeItem('zodiac_selected_seats');
+        localStorage.removeItem('zodiac_total_price');
+        
         localStorage.setItem('zodiac_movie', titleText.textContent);
         localStorage.setItem('zodiac_time', this.textContent);
         console.log("Tersimpan: " + titleText.textContent + " jam " + this.textContent);
