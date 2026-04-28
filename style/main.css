@@ -56,8 +56,8 @@ body {
 	background-color: #02002E;
 	color: white;
 	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
+	justify-content: center;
+	align-items: center;
 	max-width: 100%;
 	min-height: 100vh;
 	overflow-x: hidden;
