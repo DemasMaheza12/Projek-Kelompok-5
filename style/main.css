@@ -52,11 +52,6 @@ html {
 	scrollbar-gutter: stable;
 }
 
-html, body {
-	overflow-x: hidden;
-	max-width: 100vw;
-}
-
 body {
 	background-color: #02002E;
 	color: white;
@@ -355,6 +350,11 @@ main {
 }
 
 @media (max-width: 500px) {
+	html, body {
+		overflow-x: hidden;
+		max-width: 100vw;
+	}
+
 	header {
 		flex-wrap: nowrap;
 		align-items: center;
