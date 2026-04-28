@@ -29,7 +29,7 @@ header {
     padding: 0.5rem 2.5rem;
     color: white;
 	font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     text-decoration: unset;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -41,15 +41,14 @@ header {
 	background-color: #ffa840;
 }
 
-.judul {
+.zodiac {
     font-family: 'Roboto';
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 400;
     color: white;
-	margin-bottom: 1rem;
 }
 
-.highlight {
+.zodiac span {
     font-family: 'Rockwell';
     color: #FFA412;
 }
@@ -108,7 +107,8 @@ header {
 
 .hist-brand { 
     color: #f89b29; 
-    font-size: 10px; 
+    font-family: 'Rockwell';
+    font-size: 9px; 
     font-weight: bold; 
     margin:0; 
 }
@@ -165,7 +165,7 @@ header {
 }
 
 .hist-right { 
-    width: 30%; 
+    width: 35%; 
     display: flex; 
     flex-direction: column; 
     align-items: center; 
@@ -188,4 +188,54 @@ header {
 .hist-qr { 
     width: 60px; 
     height: 60px; 
+}
+
+@media (max-width: 600px) {
+    .zodiac {
+        font-size: 3rem;
+        text-align: right;
+    }
+
+    .btn-back {
+        font-size: 1rem;
+    }
+
+    .hist-poster { 
+        width: 50px; 
+        height: 80px; 
+    }
+
+    .hist-brand {
+        font-size: 0.4rem;
+    }
+
+    .hist-movie-info h4 {
+        font-size: 0.9rem;
+    }
+
+    .hist-studio { 
+        font-size: 0.4rem; 
+    }
+
+    .hist-label {
+        font-size: 0.6rem;
+    }
+
+    .hist-mid {
+        font-size: 0.6rem;
+        text-align: right;
+    }
+
+    .hist-code-label {
+        font-size: 0.5rem;
+    }
+
+    .hist-code {
+        font-size: 0.9rem;
+    }
+
+    .hist-qr {
+        width: 38px;
+        height: 38px;
+    }
 }
