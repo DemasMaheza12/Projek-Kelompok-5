@@ -77,18 +77,20 @@ body {
 .cinema-app {
     width: 100%;
     max-width: 1200px;
-	margin: 0 auto;
-    padding: 40px 20px; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
 }
 
 header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
 }
 
 .nav-buttons {
@@ -137,14 +139,14 @@ main {
 }
 
 .carousel {
-	position: relative;
-	height: 350px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    position: relative;
+    height: 350px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
-
 .film {
 	width: 180px;
 	height: 270px;
@@ -348,6 +350,11 @@ main {
         justify-content: center;
         align-items: center;
     }
+
+	header {
+		justify-content: space-around;
+	}
+
     .cinema-app {
         padding: 20px;
         width: 100%;
