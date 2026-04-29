@@ -51,7 +51,7 @@ function updateSidebar() {
 
     const total = selected.length * 50000;
     price.textContent = total > 0 ? `Rp${total.toLocaleString('id-ID')}` : '-';
-    btn.textContent = `RINGKASAN ORDER(${selected.length})`;
+    btn.textContent = `RINGKASAN ORDER (${selected.length})`;
     
     // Simpan kursi terpilih untuk halaman payment
     const seatNames = Array.from(selected).map(s => s.textContent);
