@@ -347,7 +347,8 @@ main {
 		align-items: center;
 	}
 	.cinema-app {
-		margin: 0 auto;
+		padding: 20px;
+		width: 100%;
 	}
 
 	.zodiac {
