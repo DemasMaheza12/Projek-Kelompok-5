@@ -146,6 +146,7 @@ main {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+	left: 0;
 }
 .film {
 	width: 180px;
@@ -352,26 +353,26 @@ main {
     }
 
 	header {
-		justify-content: space-around;
+		justify-content: space-between;
+		width: 100%;
 	}
 
     .cinema-app {
         padding: 20px;
-        width: 100%;
     }
 
     .zodiac {
         font-size: 3rem;
-        flex: 1;
+        flex: none;
         text-align: right;
     }
 }
 
 @media (max-width: 768px) {
 	body {
-		min-height: auto;
-		height: auto;
+		min-height: 100vh;
 		justify-content: center;
+		align-items: center;
 	}
 
 	.zodiac {
