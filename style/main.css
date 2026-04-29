@@ -371,7 +371,7 @@ main {
 	body {
 		min-height: auto;
 		height: auto;
-		justify-content: flex-start;
+		justify-content: center;
 	}
 
 	.zodiac {
