@@ -341,10 +341,13 @@ main {
 	background-color: rgba(255, 255, 255, 0.3);
 }
 
-@media (max-width: 900px) {
+@media (orientation: landscape) and (max-width: 1024px) {
+	body {
+		justify-content: flex-start;
+		align-items: center;
+	}
 	.cinema-app {
-		width: 100%;
-		max-width: 1400px;
+		margin: 0 auto;
 	}
 
 	.zodiac {
