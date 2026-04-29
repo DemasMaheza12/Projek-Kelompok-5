@@ -71,45 +71,22 @@ Module.onRuntimeInitialized = () => {
                 alert("Tidak ada kursi yang dipilih!");
                 return;
             }
-
-        // ✅ Definisikan pool kursi dummy langsung di sini
-        const allSeatPool = [
-            "A1","A2","A3","A4","A5","A6","A7","A8","A9","A10",
-            "B1","B2","B3","B4","B5","B6","B7","B8","B9","B10",
-            "C1","C2","C3","C4","C5","C6","C7","C8","C9","C10",
-            "D1","D2","D3","D4","D5","D6","D7","D8","D9","D10"
-        ];
-
-        // ✅ Ambil kursi yang sudah dipilih user dari localStorage
-        const userSeats = JSON.parse(seatsRaw); // misal: ["B2", "B3"]
-
-        // ✅ Filter: kursi dummy tidak boleh sama dengan kursi user
-        const availableSeats = allSeatPool.filter(seat => !userSeats.includes(seat));
-
-        // ✅ Fungsi ambil kursi acak tanpa duplikat
-        function getRandomSeat() {
-            const used = [];
-            return function() {
-                const pool = availableSeats.filter(s => !used.includes(s));
-                const picked = pool[Math.floor(Math.random() * pool.length)];
-                used.push(picked);
-                return picked;
-            };
+        
+        function getRandomQueue(){
+            return Math.floor(Math.random() * 20) + 1; 
         }
-        const randomSeat = getRandomSeat();
 
-        // ✅ Buat 2 kursi dummy acak
-        const dummySeat1 = randomSeat();
-        const dummySeat2 = randomSeat();
+        const queueLength1 = getRandomQueue();
+        const queueLength2 = getRandomQueue();
 
         // Tampilkan overlay
         overlay.classList.remove('hidden');
         visualQueue.innerHTML = '';
 
         const queueData = [
-            `Order ${dummySeat1} (Online)`,
-            `Order ${dummySeat2} (Debit)`,
-            `Pesanan: ${userSeats.join(', ')} via ${selectedMethod.textContent}`
+            `Order #${queueLength2} (Online)`,
+            `Order #${queueLength1} (Debit)`,
+            `Pesanan anda via ${selectedMethod.textContent}`
         ];
 
         // ENQUEUE: Masukkan ke C++ dan ke UI Visual
@@ -124,7 +101,7 @@ Module.onRuntimeInitialized = () => {
             const node = document.createElement('div');
             node.className = 'queue-node';
             node.id = `node-${index}`;
-            node.textContent = data.includes("Pesanan") ? "Pesanan Saat Ini" : data;
+            node.textContent = data.includes("Pesanan") ? `Pesanan anda via ${selectedMethod.textContent}` : data;
             visualQueue.appendChild(node);
         });
 
