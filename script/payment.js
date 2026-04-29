@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('pay-time').textContent = `Jam: ${time}`;
     document.getElementById('pay-ticket-count').textContent = `${seats.length} TIKET`;
     document.getElementById('pay-seats').textContent = seats.join(', ');
-    document.getElementById('pay-subtotal').textContent = `Rp 50.000 x ${seats.length}`;
-    document.getElementById('pay-total-price').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+    document.getElementById('pay-subtotal').textContent = `Rp50.000 x ${seats.length}`;
+    document.getElementById('pay-total-price').textContent = `Rp${totalPrice.toLocaleString('id-ID')}`;
 
     // 3. Logika Pemilihan Metode Pembayaran
     const btnMethods = document.querySelectorAll('.btn-method');
