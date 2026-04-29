@@ -343,7 +343,7 @@ main {
 
 @media (orientation: landscape) and (max-width: 1024px) {
 	body {
-		justify-content: flex-start;
+		justify-content: center;
 		align-items: center;
 	}
 	.cinema-app {
