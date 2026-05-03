@@ -62,6 +62,7 @@ body {
     background-color: #02002E;
     color: white;
     display: flex;
+	flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
