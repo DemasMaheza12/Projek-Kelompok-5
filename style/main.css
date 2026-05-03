@@ -58,11 +58,10 @@ html::-webkit-scrollbar {
     display: none;
 }
 
-body {
+html, body {
     background-color: #02002E;
     color: white;
     display: flex;
-	flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -345,6 +344,32 @@ main {
 	background-color: rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 768px) {
+	html, body {
+		min-height: 100vh;
+		justify-content: center;
+		overflow-x: hidden;
+		max-width: 100vw;
+	}
+
+	.zodiac {
+		font-size: 2rem;
+		text-align: right;
+	}
+}
+
+@media (min-width: 1025px) {
+	html, body {
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+	}
+
+	.cinema-app {
+		margin: 0 auto;
+	}
+}
+
 @media (orientation: landscape) and (max-width: 1024px) {
     html, body {
 		min-height: 100vh;
@@ -367,20 +392,6 @@ main {
         flex: none;
         text-align: right;
     }
-}
-
-@media (max-width: 768px) {
-	html, body {
-		min-height: 100vh;
-		justify-content: center;
-		overflow-x: hidden;
-		max-width: 100vw;
-	}
-
-	.zodiac {
-		font-size: 2rem;
-		text-align: right;
-	}
 }
 
 @media (max-width: 500px) {
